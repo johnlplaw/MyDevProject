@@ -305,7 +305,7 @@ def Main_trainingModel(modelType, tokenizer, model, texts, labels, BATCH_SIZE, L
         record_training(modelType, epoch, avg_loss, accuracy, avg_loss_val, accuracy_val, epoch_time)
 
     # Save the trained model if needed
-    torch.save(model.state_dict(), var.DIR_OUTPUT + " " + modelType + '_model.pth')
+    torch.save(model.state_dict(), var.DIR_OUTPUT + modelType + '_model.pth')
 
     # Create a graph of the computation
     inputs = None
@@ -317,10 +317,10 @@ def Main_trainingModel(modelType, tokenizer, model, texts, labels, BATCH_SIZE, L
     graph = make_dot(outputs.logits, params=dict(model.named_parameters()))
 
     # Save the graph as an image (PNG)
-    graph.render(filename=var.DIR_OUTPUT + " " + modelType + '_model', format='png', cleanup=True)
+    graph.render(filename=var.DIR_OUTPUT + modelType + '_model', format='png', cleanup=True)
 
     # Save the trained model if needed
-    torch.save(model.state_dict(), var.DIR_OUTPUT + " " + modelType + '_model.pth')
+    torch.save(model.state_dict(), var.DIR_OUTPUT + modelType + '_model.pth')
 
     # Generate graph
     # Plotting accuracy
@@ -345,7 +345,7 @@ def Main_trainingModel(modelType, tokenizer, model, texts, labels, BATCH_SIZE, L
     plt.tight_layout()
 
     # Save the figure to an image file (e.g., PNG)
-    plt.savefig(var.DIR_OUTPUT + " " + modelType + '_training_graph.png')
+    plt.savefig(var.DIR_OUTPUT + modelType + '_training_graph.png')
 
     # Show the plot (optional)
     # plt.show()
@@ -537,3 +537,219 @@ def record_training(model_id, epoch, training_loss, training_accuracy, val_loss,
             mycursor.close()
             conn.close()
             print("MySQL connection is closed")
+
+
+def Main_trainingModel_batch(modelType, tokenizer, model, texts, labels, BATCH_SIZE, LEARNING_RATE, start_epochs, end_epoches):
+    print(start_epochs)
+    print(end_epoches)
+
+    # For grahic
+    os.environ["PATH"] += os.pathsep + '/opt/homebrew/bin/'
+
+    # Print model architecture and details
+    print("Model architecture:")
+    print(model)
+
+    # Print model configuration
+    print("\nModel configuration:")
+    print(model.config)
+
+    # Tokenize input texts
+    tokenized_inputs = tokenizer(texts, padding=True, truncation=True, return_tensors="pt")
+
+    # Build dataset and dataloader
+    input_ids = tokenized_inputs["input_ids"]
+    attention_mask = tokenized_inputs["attention_mask"]
+    labels = torch.tensor(labels)
+
+    dataset = TensorDataset(input_ids, attention_mask, labels)
+
+    train_dataset, val_dataset = train_test_split(dataset, test_size=0.2, random_state=42)
+
+    train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=BATCH_SIZE)
+
+    # Build and train the model
+    optimizer = AdamW(model.parameters(), lr=LEARNING_RATE)
+
+    # Use CrossEntropyLoss for multi-class classification
+    criterion = torch.nn.CrossEntropyLoss()
+
+    # Move model to GPU if available
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    model.to(device)
+
+    # data for monitoring of the training process
+    epochsList = []
+    train_accuracyList = []
+    val_accuracyList = []
+    train_lossList = []
+    val_lossList = []
+
+    # From check point
+    prev_epoch = start_epochs -1
+    start_state_file = var.DIR_OUTPUT + modelType + '_checkpoint_' + str(prev_epoch) + '_model.pth'
+    if os.path.isfile(start_state_file):
+        checkpoint = torch.load(start_state_file)
+
+        epochsList = checkpoint['epochsList']
+        train_accuracyList = checkpoint['train_accuracyList']
+        val_accuracyList = checkpoint['val_accuracyList']
+        train_lossList = checkpoint['train_lossList']
+        val_lossList = checkpoint['val_lossList']
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        avg_loss = checkpoint['loss']
+        accuracy = checkpoint['accuracy']
+        avg_loss_val = checkpoint['avg_loss_val']
+        accuracy_val = checkpoint['accuracy_val']
+        print('Done: loading check point')
+
+    for epoch in range(start_epochs, end_epoches + 1):
+        start_time = time.monotonic()  # Record the start time for the epoch
+        model.train()
+        total_correct = 0
+        total_samples = 0
+        total_loss = 0.0
+
+        for batch in train_dataloader:
+            batch = tuple(t.to(device) for t in batch)
+            inputs = {"input_ids": batch[0], "attention_mask": batch[1]}
+            labels = batch[2].to(device)
+            outputs = model(**inputs)
+            logits = outputs.logits
+            loss = criterion(logits, labels)
+            total_loss += loss.item()
+
+            _, predicted_labels = torch.max(logits, 1)
+            total_correct += (predicted_labels == labels).sum().item()
+            total_samples += labels.size(0)
+
+            optimizer.zero_grad()
+            loss.backward()
+
+            # Applying dropout manually
+            # ---------
+            dropout_rate = 0.2
+            for name, param in model.named_parameters():
+                if 'dropout' in name:
+                    param.grad = param.grad * (1 - dropout_rate)
+            # ---------
+            optimizer.step()
+
+        accuracy = total_correct / total_samples
+        avg_loss = total_loss / len(train_dataloader)
+        print(f'Epoch {epoch}/{end_epoches}, Training Loss: {avg_loss:.4f}, Training Accuracy: {accuracy:.4f}')
+
+        # Validation
+        model.eval()
+        total_correct_val = 0
+        total_samples_val = 0
+        total_loss_val = 0.0
+
+        with torch.no_grad():
+            for batch in val_dataloader:
+                batch = tuple(t.to(device) for t in batch)
+                inputs = {"input_ids": batch[0], "attention_mask": batch[1]}
+                labels = batch[2].to(device)
+                outputs = model(**inputs)
+                logits = outputs.logits
+                loss = criterion(logits, labels)
+                total_loss_val += loss.item()
+
+                _, predicted_labels_val = torch.max(logits, 1)
+                total_correct_val += (predicted_labels_val == labels).sum().item()
+                total_samples_val += labels.size(0)
+
+                batch_probs = F.softmax(logits, dim=1)
+
+        accuracy_val = total_correct_val / total_samples_val
+        avg_loss_val = total_loss_val / len(val_dataloader)
+
+        # Calculate and print the time spent
+        end_time = time.monotonic()
+        epoch_time = end_time - start_time
+
+        print(
+            f'Epoch {epoch}/{end_epoches}, Time: {epoch_time:.2f}s, Validation Loss: {avg_loss_val:.4f}, Validation Accuracy: {accuracy_val:.4f}')
+
+        # Keeping training info
+        epochsList.append(epoch)
+        train_accuracyList.append(accuracy)
+        val_accuracyList.append(accuracy_val)
+        train_lossList.append(avg_loss)
+        val_lossList.append(avg_loss_val)
+
+        # save the info into database
+        record_training(modelType, epoch, avg_loss, accuracy, avg_loss_val, accuracy_val, epoch_time)
+
+        ## -----
+        torch.save(
+            {
+                'epoch': epoch,
+
+                'epochsList': epochsList,
+                'train_accuracyList': train_accuracyList,
+                'val_accuracyList': val_accuracyList,
+                'train_lossList': train_lossList,
+                'val_lossList': val_lossList,
+
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+
+                'loss': avg_loss,
+                'accuracy': accuracy,
+                'avg_loss_val': avg_loss_val,
+                'accuracy_val': accuracy_val,
+            },
+            var.DIR_OUTPUT + modelType + '_checkpoint_' + str(epoch) + '_model.pth'
+        )
+        ## -----
+        print("Done: save check point")
+
+    # Save the trained model if needed
+    torch.save(model.state_dict(), var.DIR_OUTPUT + modelType + '_model.pth')
+
+    # Create a graph of the computation
+    inputs = None
+    for batch in val_dataloader:
+        batch = tuple(t.to(device) for t in batch)
+        inputs = {"input_ids": batch[0], "attention_mask": batch[1]}
+        break
+    outputs = model(**inputs)
+    graph = make_dot(outputs.logits, params=dict(model.named_parameters()))
+
+    # Save the graph as an image (PNG)
+    graph.render(filename=var.DIR_OUTPUT + modelType + '_model', format='png', cleanup=True)
+
+    # Save the trained model if needed
+    torch.save(model.state_dict(), var.DIR_OUTPUT + modelType + '_model.pth')
+
+    # Generate graph
+    # Plotting accuracy
+    plt.figure(figsize=(10, 5))
+    plt.subplot(1, 2, 1)
+    plt.plot(epochsList, train_accuracyList, label='Training Accuracy', marker='o')
+    plt.plot(epochsList, val_accuracyList, label='Validation Accuracy', marker='o')
+    plt.title('Epoch vs Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.legend()
+
+    # Plotting average loss
+    plt.subplot(1, 2, 2)
+    plt.plot(epochsList, train_lossList, label='Training Loss', marker='o')
+    plt.plot(epochsList, val_lossList, label='Validation Loss', marker='o')
+    plt.title('Epoch vs Average Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Average Loss')
+    plt.legend()
+
+    plt.tight_layout()
+
+    # Save the figure to an image file (e.g., PNG)
+    plt.savefig(var.DIR_OUTPUT + modelType + '_training_graph.png')
+
+    # Show the plot (optional)
+    # plt.show()
+

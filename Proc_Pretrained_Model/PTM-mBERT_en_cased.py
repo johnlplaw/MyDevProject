@@ -12,10 +12,10 @@ BATCH_SIZE = 8
 #LEARNING_RATE = 3e-4 #0.0003
 LEARNING_RATE = 3e-5 #0.00003
 
-fileObj = open('engdb_txt.obj', 'rb')
+fileObj = open('backup/engdb_txt.obj', 'rb')
 engdb_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open('engdb_label.obj', 'rb')
+fileObj = open('backup/engdb_label.obj', 'rb')
 engdb_label_1 = pickle.load(fileObj)
 fileObj.close()
 

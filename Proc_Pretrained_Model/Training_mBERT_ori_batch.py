@@ -7,14 +7,17 @@ import random
 import Variable as var
 
 # Configuration for training
+start_epochs = 0 # start with 0
+end_epochs = 19 #19 is 20th
+EXP_TYPE = 'RO3'
+DATA_SIZE = var.SAMPLING_400
+LANG_TYPE = var.LANG_TYPE_MULTI #var.LANG_TYPE_ENG or var.LANG_TYPE_ENG
+
+# Tuning parameter
 NUM_CLASSES = len(var.Label_Code_Desc)
-num_epochs = 20
 BATCH_SIZE = 8
 LEARNING_RATE = 3e-5 #0.000035
-LANG_TYPE = var.LANG_TYPE_MULTI #var.LANG_TYPE_ENG or var.LANG_TYPE_ENG
 SAMPLING_TYPE = var.SAMPLING_TYPE_ORI
-EXP_TYPE = 'RO3'
-DATA_SIZE = var.SAMPLING_1200
 model_type = "mBERT"
 model_name = "bert-base-multilingual-uncased"
 
@@ -45,6 +48,6 @@ training_label = [int(i) for i in training_label]
 model_id = model_type + '_' + LANG_TYPE + '_' + str(DATA_SIZE) + '_' + SAMPLING_TYPE + '_' + EXP_TYPE
 tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertForSequenceClassification.from_pretrained(model_name, num_labels=NUM_CLASSES)
-ptm.Main_trainingModel(model_id, tokenizer, model, training_txt, training_label, BATCH_SIZE, LEARNING_RATE, num_epochs)
+ptm.Main_trainingModel_batch(model_id, tokenizer, model, training_txt, training_label, BATCH_SIZE, LEARNING_RATE, start_epochs, end_epochs)
 
 

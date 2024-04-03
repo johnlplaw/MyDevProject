@@ -64,7 +64,7 @@ Label_Code_Desc = {
 
 
 
-FILE_CROSSLINGUAL_UNDERSAMPLING_DF = 'DF_crosslingual_under.obj'
+FILE_CROSSLINGUAL_UNDERSAMPLING_DF = 'backup/DF_crosslingual_under.obj'
 FILE_CROSSLINGUAL_OVERSAMPLING_DF = 'DF_crosslingual_over.obj'
 
 language_type = [
