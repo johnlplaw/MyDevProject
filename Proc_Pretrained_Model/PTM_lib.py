@@ -704,6 +704,11 @@ def Main_trainingModel_batch(modelType, tokenizer, model, texts, labels, BATCH_S
             },
             var.DIR_OUTPUT + modelType + '_checkpoint_' + str(epoch) + '_model.pth'
         )
+        prev_file = var.DIR_OUTPUT + modelType + '_checkpoint_' + str(epoch - 1) + '_model.pth'
+        if os.path.exists(prev_file):
+            os.remove(prev_file)
+            print(f"The file {prev_file} has been deleted.")
+
         ## -----
         print("Done: save check point")
 
