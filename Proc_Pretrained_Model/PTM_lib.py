@@ -250,10 +250,11 @@ def Main_trainingModel(modelType, tokenizer, model, texts, labels, BATCH_SIZE, L
 
             # Applying dropout manually
             #---------
-            dropout_rate = 0.2
-            for name, param in model.named_parameters():
-                if 'dropout' in name:
-                    param.grad = param.grad * (1 - dropout_rate)
+            # Use the default dropout_rate = 0.1
+            # dropout_rate = 0.2
+            # for name, param in model.named_parameters():
+            #     if 'dropout' in name:
+            #         param.grad = param.grad * (1 - dropout_rate)
             # ---------
             optimizer.step()
 
@@ -630,10 +631,11 @@ def Main_trainingModel_batch(modelType, tokenizer, model, texts, labels, BATCH_S
 
             # Applying dropout manually
             # ---------
-            dropout_rate = 0.2
-            for name, param in model.named_parameters():
-                if 'dropout' in name:
-                    param.grad = param.grad * (1 - dropout_rate)
+            # Use the default dropout_rate = 0.1
+            # dropout_rate = 0.2
+            # for name, param in model.named_parameters():
+            #     if 'dropout' in name:
+            #         param.grad = param.grad * (1 - dropout_rate)
             # ---------
             optimizer.step()
 
