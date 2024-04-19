@@ -37,6 +37,7 @@ def create_training_multi (sampling_size):
     return new_df
 
 for size in var.sampling_size_list:
+#for size in [var.SAMPLING_3200, var.SAMPLING_3600]:
     print("Work on " + str(size))
     eng_df = create_training_eng(size)
     multi_df = create_training_multi(size)
