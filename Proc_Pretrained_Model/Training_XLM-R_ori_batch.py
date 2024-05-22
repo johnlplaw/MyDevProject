@@ -17,7 +17,7 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE):
 
     # Tuning parameter
     NUM_CLASSES = len(var.Label_Code_Desc)
-    LEARNING_RATE = 3e-5 #0.000035
+    LEARNING_RATE = 3e-5 #0.00003
     SAMPLING_TYPE = var.SAMPLING_TYPE_ORI
     model_type = "XLM-R"
     model_name = "xlm-roberta-base"
