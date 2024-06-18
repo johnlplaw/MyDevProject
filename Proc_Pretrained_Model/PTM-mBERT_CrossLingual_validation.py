@@ -35,7 +35,7 @@ tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertForSequenceClassification.from_pretrained(model_name, num_labels=NUM_CLASSES)
 
 # 4. Load the saved state dictionary into the model
-model_path = "mBERT" + '_' + LANG_TYPE + '_' + SAMPLING_TYPE + '_' + EXP_TYPE + '_model.pth'
+model_path = "./output/mBERT_English_400_ori_RO3_Batch_8_model.pth"
 state_dict = torch.load(model_path)
 model.load_state_dict(state_dict)
 
