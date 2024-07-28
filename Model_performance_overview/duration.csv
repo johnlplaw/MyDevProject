@@ -1,0 +1,13 @@
+,model_name,elapsed,duration,name
+0,Final-FB-XLM-R_English_1600_1e-05,46232.7064,01 day 12:50:32,FB-XLM-R_English_1600
+1,Final-FB-XLM-R_English_2800_1e-05,102608.7286,02 day 04:30:08,FB-XLM-R_English_2800
+2,Final-FB-XLM-R_English_400_1e-05,1598.4047,01 day 00:26:38,FB-XLM-R_English_400
+3,Final-FB-XLM-R_Multilingual_1600_1e-05,47056.9334,01 day 13:04:16,FB-XLM-R_Multilingual_1600
+4,Final-FB-XLM-R_Multilingual_2800_1e-05,112324.5167,02 day 07:12:04,FB-XLM-R_Multilingual_2800
+5,Final-FB-XLM-R_Multilingual_400_1e-05,1514.6728,01 day 00:25:14,FB-XLM-R_Multilingual_400
+6,Final-mBERT_English_1600_1e-05,13096.9321,01 day 03:38:16,mBERT_English_1600
+7,Final-mBERT_English_2800_1e-05,110576.1344,02 day 06:42:56,mBERT_English_2800
+8,Final-mBERT_English_400_1e-05,1422.2809,01 day 00:23:42,mBERT_English_400
+9,Final-mBERT_Multilingual_1600_1e-05,10493.4858,01 day 02:54:53,mBERT_Multilingual_1600
+10,Final-mBERT_Multilingual_2800_1e-05,180306.65600000002,03 day 02:05:06,mBERT_Multilingual_2800
+11,Final-mBERT_Multilingual_400_1e-05,1392.5238,01 day 00:23:12,mBERT_Multilingual_400
