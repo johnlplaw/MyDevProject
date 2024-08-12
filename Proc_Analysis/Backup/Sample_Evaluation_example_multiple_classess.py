@@ -6,8 +6,11 @@ from itertools import cycle
 from sklearn.preprocessing import LabelEncoder
 
 def analysis_compare (model_name, y_true_multi, y_pred_multi):
+
+    labels = ["A", "B", "C"]
+    #labels = ["C", "A", "B"]
     # Calculate confusion matrix
-    conf_matrix_multi = confusion_matrix(y_true_multi, y_pred_multi)
+    conf_matrix_multi = confusion_matrix(y_true_multi, y_pred_multi, labels=labels)
 
     # Calculate evaluation metrics
     accuracy_multi = accuracy_score(y_true_multi, y_pred_multi)
@@ -36,8 +39,9 @@ def analysis_compare (model_name, y_true_multi, y_pred_multi):
 
 
     # Plot confusion matrix
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(conf_matrix_multi, annot=True, fmt='d', cmap='Blues', cbar=False, square=True)
+    fig = plt.figure(figsize=(8, 6))
+    ax = fig.add_subplot(111)
+    sns.heatmap(conf_matrix_multi, annot=True, fmt='d', cmap='Blues', cbar=False, square=True, xticklabels=labels, yticklabels=labels)
     plt.xlabel('Predicted Labels')
     plt.ylabel('True Labels')
     plt.title('Confusion Matrix')
