@@ -9,12 +9,12 @@ data_list = lib.get_cleanned_ori_text()
 
 # Prepare the model, tokenizer
 print("Prepare model and tokenizer ... start")
-model, tokenizer = lib.prepare_model_mBERT_Eng()
+model, tokenizer = lib.prepare_model_mBERT()
 print("Prepare model and tokenizer ... end")
 
 # Load the model
 print("Load model ... start")
-model_path = "./selected_models/mBERT_English_2800_ori_RO3_Batch_8_model.pth"
+model_path = "../selected_models/mBERT_English_2800_ori_RO3_Batch_8_model.pth"
 state_dict = torch.load(model_path)
 model.load_state_dict(state_dict)
 print("Load model ... end")

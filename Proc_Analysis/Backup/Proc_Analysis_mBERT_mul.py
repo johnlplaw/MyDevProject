@@ -9,7 +9,7 @@ data_list = lib.get_cleanned_ori_text()
 
 # Prepare the model, tokenizer
 print("Prepare model and tokenizer ... start")
-model, tokenizer = lib.prepare_model_mBERT_Eng()
+model, tokenizer = lib.prepare_model_mBERT()
 print("Prepare model and tokenizer ... end")
 
 # Load the model
