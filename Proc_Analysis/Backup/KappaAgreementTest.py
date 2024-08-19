@@ -19,6 +19,8 @@ def calculate_Cohen_Kappa_Score(raters):
     return data
 
 def platHeatMapKappaScore(data):
+
+    print(np.tri(len(raters)))
     sns.heatmap(
         data,
         mask=np.tri(len(raters)),

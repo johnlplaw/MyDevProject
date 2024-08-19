@@ -57,6 +57,9 @@ def analysis_compare (model_name, y_true_multi, y_pred_multi):
     y_true_encoded = label_encoder.fit_transform(y_true_multi)
     y_pred_encoded = label_encoder.transform(y_pred_multi)
 
+    labelList = label_encoder.classes_
+    print(labelList)
+
     # Compute ROC curve and ROC area for each class
     fpr = dict()
     tpr = dict()
@@ -69,6 +72,9 @@ def analysis_compare (model_name, y_true_multi, y_pred_multi):
         fpr[i], tpr[i], _ = roc_curve(y_true_binary, y_pred_binary)
         roc_auc[i] = auc(fpr[i], tpr[i])
 
+    # Decode labels back to original
+    decoded_labels = label_encoder.inverse_transform(np.arange(n_classes))
+
     # Plot ROC curve for each class
     plt.figure()
     lw = 2
@@ -76,7 +82,7 @@ def analysis_compare (model_name, y_true_multi, y_pred_multi):
     for i, color in zip(range(n_classes), colors):
         plt.plot(fpr[i], tpr[i], color=color, lw=lw,
                  label='ROC curve of class {0} (area = {1:0.2f})'
-                 ''.format(i, roc_auc[i]))
+                 ''.format(labelList[i], roc_auc[i]))
 
     plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
     plt.xlim([0.0, 1.0])
