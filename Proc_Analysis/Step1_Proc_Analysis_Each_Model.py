@@ -2,7 +2,8 @@ import Lib_analysis as lib
 import os.path
 
 """
-This script is for emotion prediction to be done by the models. The result of the prediction is updated in to the Tweets table.
+This script is for emotion prediction to be done by the models. The result of the prediction is updated in to the Tweets 
+table.
 """
 
 class Selected_Model:

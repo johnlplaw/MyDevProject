@@ -1,6 +1,11 @@
 import Lib_analysis as lib
 from Lib_analysis import Lang_Model
 
+"""
+This script is for checking agreement by kappa index between "actual label" with predicted label of the models for the 
+testing data.
+"""
+
 labelList = [
     "label",
     "mBERT-400-E",

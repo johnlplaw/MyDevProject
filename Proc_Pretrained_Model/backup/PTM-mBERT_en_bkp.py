@@ -12,10 +12,10 @@ BATCH_SIZE = 8
 #LEARNING_RATE = 3e-4 #0.0003
 LEARNING_RATE = 3e-5 #0.00003
 
-fileObj = open('backup/engdb_txt.obj', 'rb')
+fileObj = open('engdb_txt.obj', 'rb')
 engdb_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open('backup/engdb_label.obj', 'rb')
+fileObj = open('engdb_label.obj', 'rb')
 engdb_label_1 = pickle.load(fileObj)
 fileObj.close()
 
@@ -36,7 +36,9 @@ df = pd.DataFrame({'Text': engdb_txt_1, 'Label': numeric_labels})
 # Set random seed for reproducibility
 random.seed(42)
 # Randomly select 10 rows from the DataFrame
-text_df = df.sample(n=3000)
+text_df = df.sample(n=10000)
+
+
 
 txt = text_df['Text']
 label = text_df['Label']
@@ -46,7 +48,7 @@ model_name = "bert-base-multilingual-uncased"
 tokenizer = BertTokenizer.from_pretrained(model_name)
 model = BertForSequenceClassification.from_pretrained(model_name, num_labels=NUM_CLASSES)
 
-ptm.Main_trainingModel("mBERT_en_cased", tokenizer, model, txt.tolist(), label.tolist(), BATCH_SIZE, LEARNING_RATE, num_epochs)
+ptm.Main_trainingModel("mBERT_en", tokenizer, model, txt.tolist(), label.tolist(), BATCH_SIZE, LEARNING_RATE, num_epochs)
 
 # model_name = "xlm-roberta-base"
 # tokenizer = XLMRobertaTokenizer.from_pretrained(model_name)

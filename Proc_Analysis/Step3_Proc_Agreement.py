@@ -1,6 +1,11 @@
 import Lib_analysis as lib
 from Lib_analysis import Lang_Model
 
+"""
+This script is for checking agreement by kappa index between "pseudo label" with predicted label of the models for the 
+tweets data.
+"""
+
 # 1. Get the pseudo-label list (ordered by id)
 pseudo_label = lib.get_Label("pseudo_label")
 

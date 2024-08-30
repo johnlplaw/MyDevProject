@@ -1,6 +1,10 @@
 import Lib_analysis as lib
 from Lib_analysis import Lang_Model
 
+"""
+This script is for evaluating the predicted label of the models for the testing data against the "pseudo label".
+"""
+
 # 1. Get the pseudo-label list (ordered by id)
 pseudo_eng_label_list = lib.get_Testing_Label("eva_eng_text", "pseudo_label")
 pseudo_mul_label_list = lib.get_Testing_Label("eva_eng_text", "pseudo_label")
