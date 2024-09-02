@@ -4,31 +4,67 @@
 DIR_OUTPUT = "output/"
 
 # File name for datasets - start
-FILE_OVERSAMPLING_ENG_TEXT_DATASET = DIR_OUTPUT + "Dataset_engdb_txt_over.obj"
-FILE_OVERSAMPLING_ENG_LABEL_DATASET = DIR_OUTPUT + "Dataset_engdb_label_over.obj"
-FILE_OVERSAMPLING_MULTI_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLang_txt_over.obj"
-FILE_OVERSAMPLING_MULTI_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLang_label_over.obj"
-FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_txt_over.obj"
-FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_label_over.obj"
+FILE_OVERSAMPLING_ENG_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_txt_over_lbl.obj"
+FILE_OVERSAMPLING_ENG_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_label_over_lbl.obj"
+FILE_OVERSAMPLING_MULTI_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_txt_over_lbl.obj"
+FILE_OVERSAMPLING_MULTI_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_label_over_lbl.obj"
+FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_over_lbl.obj"
+FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_label_over_lbl.obj"
 
-FILE_UNDERSAMPLING_ENG_TEXT_DATASET = DIR_OUTPUT + "Dataset_engdb_txt_under.obj"
-FILE_UNDERSAMPLING_ENG_LABEL_DATASET = DIR_OUTPUT + "Dataset_engdb_label_under.obj"
-FILE_UNDERSAMPLING_MULTI_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLang_txt_under.obj"
-FILE_UNDERSAMPLING_MULTI_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLang_label_under.obj"
-FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_txt_under.obj"
-FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_label_under.obj"
+FILE_UNDERSAMPLING_ENG_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_txt_under_lbl.obj"
+FILE_UNDERSAMPLING_ENG_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_label_under_lbl.obj"
+FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_txt_under_lbl.obj"
+FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_label_under_lbl.obj"
+FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_under_lbl.obj"
+FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_label_under_lbl.obj"
 
-FILE_NOSAMPLING_ENG_TEXT_DATASET = DIR_OUTPUT + "Dataset_engdb_txt_nos.obj"
-FILE_NOSAMPLING_ENG_LABEL_DATASET = DIR_OUTPUT + "Dataset_engdb_label_nos.obj"
-FILE_NOSAMPLING_MULTI_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLang_txt_nos.obj"
-FILE_NOSAMPLING_MULTI_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLang_label_nos.obj"
-FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_txt_nos.obj"
-FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET = DIR_OUTPUT + "Dataset_multiLangComb_label_nos.obj"
+FILE_NOSAMPLING_ENG_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_txt_nos_lbl.obj"
+FILE_NOSAMPLING_ENG_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_engdb_label_nos_lbl.obj"
+FILE_NOSAMPLING_MULTI_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_txt_nos_lbl.obj"
+FILE_NOSAMPLING_MULTI_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLang_label_nos_lbl.obj"
+FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_nos_lbl.obj"
+FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_LBL = DIR_OUTPUT + "Dataset_multiLangComb_label_nos_lbl.obj"
+
+FILE_OVERSAMPLING_ENG_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_txt_over_plbl.obj"
+FILE_OVERSAMPLING_ENG_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_label_over_plbl.obj"
+FILE_OVERSAMPLING_MULTI_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_txt_over_plbl.obj"
+FILE_OVERSAMPLING_MULTI_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_label_over_plbl.obj"
+FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_over_plbl.obj"
+FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_label_over_plbl.obj"
+
+FILE_NOSAMPLING_ENG_TEXT_DATASET_SLBL = DIR_OUTPUT + "Dataset_engdb_txt_nos_slbl.obj"
+FILE_NOSAMPLING_ENG_LABEL_DATASET_SLBL = DIR_OUTPUT + "Dataset_engdb_label_nos_slbl.obj"
+FILE_NOSAMPLING_MULTI_TEXT_DATASET_SLBL = DIR_OUTPUT + "Dataset_multiLang_txt_nos_slbl.obj"
+FILE_NOSAMPLING_MULTI_LABEL_DATASET_SLBL = DIR_OUTPUT + "Dataset_multiLang_label_nos_slbl.obj"
+FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_SLBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_nos_slbl.obj"
+FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_SLBL = DIR_OUTPUT + "Dataset_multiLangComb_label_nos_slbl.obj"
+
+FILE_UNDERSAMPLING_ENG_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_txt_under_plbl.obj"
+FILE_UNDERSAMPLING_ENG_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_label_under_plbl.obj"
+FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_txt_under_plbl.obj"
+FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_label_under_plbl.obj"
+FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_under_plbl.obj"
+FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_label_under_plbl.obj"
+
+FILE_NOSAMPLING_ENG_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_txt_nos_plbl.obj"
+FILE_NOSAMPLING_ENG_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_engdb_label_nos_plbl.obj"
+FILE_NOSAMPLING_MULTI_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_txt_nos_plbl.obj"
+FILE_NOSAMPLING_MULTI_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLang_label_nos_plbl.obj"
+FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_txt_nos_plbl.obj"
+FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_PLBL = DIR_OUTPUT + "Dataset_multiLangComb_label_nos_plbl.obj"
 # File name for datasets - end
 
-FILE_MULTICOMB_DF = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_"
-FILE_TRAINING_ENG_NOS = DIR_OUTPUT + "DataFrame_training_eng_nos_"
-FILE_TRAINING_MUL_NOS = DIR_OUTPUT + "DataFrame_training_multi_nos_"
+FILE_MULTICOMB_DF_LBL = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_lbl_"
+FILE_TRAINING_ENG_NOS_LBL = DIR_OUTPUT + "DataFrame_training_eng_nos_lbl_"
+FILE_TRAINING_MUL_NOS_LBL = DIR_OUTPUT + "DataFrame_training_multi_nos_lbl_"
+
+FILE_MULTICOMB_DF_PLBL = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_plbl_"
+FILE_TRAINING_ENG_NOS_PLBL = DIR_OUTPUT + "DataFrame_training_eng_nos_plbl_"
+FILE_TRAINING_MUL_NOS_PLBL = DIR_OUTPUT + "DataFrame_training_multi_nos_plbl_"
+
+FILE_MULTICOMB_DF_SLBL = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_slbl_"
+FILE_TRAINING_ENG_NOS_SLBL = DIR_OUTPUT + "DataFrame_training_eng_nos_slbl_"
+FILE_TRAINING_MUL_NOS_SLBL = DIR_OUTPUT + "DataFrame_training_multi_nos_slbl_"
 
 EMOTION_LABEL_NEUTRAL_CODE = 0
 EMOTION_LABEL_HAPPY_CODE = 1
@@ -101,6 +137,7 @@ COLUMN_NAME_STD_LABEL = 'std_label'
 COLUMN_NAME_MULTI_LANG_TXT = 'multilang_text'
 COLUMN_NAME_SRC_TYPE = 'src_type'
 COLUMN_NAME_ENG_TXT = 'cleanedtxt'
+COLUMN_NAME_PSEUDO_LABEL = 'pseudo_label'
 
 # Sampling data
 SAMPLING_400 = 400
@@ -113,7 +150,7 @@ SAMPLING_2800 = 2800
 SAMPLING_3200 = 3200
 SAMPLING_3600 = 3600
 
-sampling_size_list = [SAMPLING_400, SAMPLING_800, SAMPLING_1200, SAMPLING_1600, SAMPLING_2000, SAMPLING_2400, SAMPLING_2800, SAMPLING_3200, SAMPLING_3600]
+sampling_size_list = [SAMPLING_400, SAMPLING_800, SAMPLING_1200, SAMPLING_1600, SAMPLING_2000, SAMPLING_2400, SAMPLING_2800]
 
 # Model Name
 MODEL_MBERT = 'mBERT'

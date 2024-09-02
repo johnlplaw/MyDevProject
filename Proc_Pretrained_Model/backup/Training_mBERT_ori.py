@@ -25,7 +25,7 @@ print("Data size each class: " + str(DATA_SIZE))
 print("Model: " + model_name)
 
 def step1_load_df(lang, size):
-    file_name = ptm.get_DF_file_path(lang, size)
+    file_name = ptm.get_DF_LBL_file_path(lang, size)
     print("DataFrame file: " + file_name)
     fileObj = open(file_name, 'rb')
     df = pickle.load(fileObj)

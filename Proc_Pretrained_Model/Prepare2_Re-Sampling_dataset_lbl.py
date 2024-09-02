@@ -7,16 +7,16 @@ from imblearn.over_sampling import RandomOverSampler
 
 # 1. Retrieve the dataset multi combine
 
-fileName = var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET
+fileName = var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_LBL
 print(fileName)
 
 isExist = os.path.exists(fileName)
 print(isExist)
 
-fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'rb')
 multi_combined_db_nos_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'rb')
 multi_combined_db_nos_label_1 = pickle.load(fileObj)
 fileObj.close()
 
@@ -129,6 +129,9 @@ sampling_class_size = [var.SAMPLING_400, var.SAMPLING_800, var.SAMPLING_1200, va
 #sampling_class_size = [var.SAMPLING_3200, var.SAMPLING_3600]
 emotion_list = list(var.Label_Code_Desc.keys())
 
+# 20240901 - for pseudo labeling
+label_type_list = ['']
+
 for sampling_size in sampling_class_size:
 #for sampling_size in [10]:
 
@@ -165,7 +168,7 @@ for sampling_size in sampling_class_size:
 
     print(resampled_df.head(5))
 
-    file_name = var.FILE_MULTICOMB_DF + str(sampling_size) + ".obj"
+    file_name = var.FILE_MULTICOMB_DF_LBL + str(sampling_size) + ".obj"
     fileObj = open(file_name, 'wb')
     pickle.dump(sampling_df, fileObj)
     fileObj.close()

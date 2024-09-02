@@ -29,23 +29,23 @@ def get_full_dataSet(langType, samplingType):
     txt_file = ''
     label_file = ''
     if langType == var.LANG_TYPE_ENG and samplingType == var.SAMPLING_TYPE_OVER:
-        txt_file = var.FILE_OVERSAMPLING_ENG_TEXT_DATASET
-        label_file = var.FILE_OVERSAMPLING_ENG_LABEL_DATASET
+        txt_file = var.FILE_OVERSAMPLING_ENG_TEXT_DATASET_LBL
+        label_file = var.FILE_OVERSAMPLING_ENG_LABEL_DATASET_LBL
     elif langType == var.LANG_TYPE_MULTI and samplingType == var.SAMPLING_TYPE_OVER:
-        txt_file = var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET
-        label_file = var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET
+        txt_file = var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET_LBL
+        label_file = var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET_LBL
     elif langType == var.LANG_TYPE_COMBINED_MULTI and samplingType == var.SAMPLING_TYPE_OVER:
-        txt_file = var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET
-        label_file = var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET
+        txt_file = var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_LBL
+        label_file = var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_LBL
     elif langType == var.LANG_TYPE_ENG and samplingType == var.SAMPLING_TYPE_UNDER:
-        txt_file = var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET
-        label_file = var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET
+        txt_file = var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET_LBL
+        label_file = var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_LBL
     elif langType == var.LANG_TYPE_MULTI and samplingType == var.SAMPLING_TYPE_UNDER:
-        txt_file = var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET
-        label_file = var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET
+        txt_file = var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_LBL
+        label_file = var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_LBL
     elif langType == var.LANG_TYPE_COMBINED_MULTI and samplingType == var.SAMPLING_TYPE_UNDER:
-        txt_file = var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET
-        label_file = var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET
+        txt_file = var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_LBL
+        label_file = var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_LBL
 
     fileObj = open(txt_file, 'rb')
     text = pickle.load(fileObj)
@@ -60,11 +60,11 @@ def get_subset_combine_dataset(samplingType, sample_count = -1, random_seed = 42
     txt_file = ''
     label_file = ''
     if samplingType == var.SAMPLING_TYPE_OVER:
-        txt_file = var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET
-        label_file = var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET
+        txt_file = var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_LBL
+        label_file = var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_LBL
     elif samplingType == var.SAMPLING_TYPE_UNDER:
-        txt_file = var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET
-        label_file = var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET
+        txt_file = var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_LBL
+        label_file = var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_LBL
 
     fileObj = open(txt_file, 'rb')
     multi_combined_db_under_txt_1 = pickle.load(fileObj)
@@ -495,12 +495,21 @@ def evaluation(combineDF, tokenizer, model, LABELS):
         plt.savefig(lang_type + '_roc.png')
 
 
-def get_DF_file_path(lang, size):
+def get_DF_LBL_file_path(lang, size):
     file_name = ""
     if lang == var.LANG_TYPE_ENG:
-        file_name = var.FILE_TRAINING_ENG_NOS + str(size) + ".obj"
+        file_name = var.FILE_TRAINING_ENG_NOS_LBL + str(size) + ".obj"
     elif lang == var.LANG_TYPE_MULTI:
-        file_name = var.FILE_TRAINING_MUL_NOS + str(size) + ".obj"
+        file_name = var.FILE_TRAINING_MUL_NOS_LBL + str(size) + ".obj"
+
+    return file_name
+
+def get_DF_PLBL_file_path(lang, size):
+    file_name = ""
+    if lang == var.LANG_TYPE_ENG:
+        file_name = var.FILE_TRAINING_ENG_NOS_PLBL + str(size) + ".obj"
+    elif lang == var.LANG_TYPE_MULTI:
+        file_name = var.FILE_TRAINING_MUL_NOS_PLBL + str(size) + ".obj"
 
     return file_name
 

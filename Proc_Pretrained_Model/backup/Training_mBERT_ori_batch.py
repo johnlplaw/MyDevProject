@@ -30,7 +30,7 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE):
     print("Model: " + model_name)
 
     def step1_load_df(lang, size):
-        file_name = ptm.get_DF_file_path(lang, size)
+        file_name = ptm.get_DF_LBL_file_path(lang, size)
         print("DataFrame file: " + file_name)
         fileObj = open(file_name, 'rb')
         df = pickle.load(fileObj)

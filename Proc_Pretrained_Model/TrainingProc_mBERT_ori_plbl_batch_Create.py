@@ -12,6 +12,8 @@ import mysql.connector
 This script is for fine tuning the mBERT model with the best learning rate. 
 """
 
+LBL_TYPE = "LBL"
+
 def is_model_done(model_name):
     print("Start to query ...")
     isFound = False;
@@ -51,7 +53,7 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
     NUM_CLASSES = len(var.Label_Code_Desc)
     #LEARNING_RATE = 3e-5 #0.00003
     SAMPLING_TYPE = var.SAMPLING_TYPE_ORI
-    model_type = "Final-mBERT"
+    model_type = "Final-mBERT" + "_" + LBL_TYPE
     model_name = "bert-base-multilingual-uncased"
 
     print("Testing info: " + EXP_TYPE)
@@ -61,7 +63,7 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
     print("Model: " + model_name)
 
     def step1_load_df(lang, size):
-        file_name = ptm.get_DF_file_path(lang, size)
+        file_name = ptm.get_DF_PLBL_file_path(lang, size)
         print("DataFrame file: " + file_name)
         fileObj = open(file_name, 'rb')
         df = pickle.load(fileObj)

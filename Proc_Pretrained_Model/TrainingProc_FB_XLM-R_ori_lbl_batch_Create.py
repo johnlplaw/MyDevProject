@@ -9,9 +9,10 @@ import commons.mysql.mysqlHelper as sqlHelper
 import mysql.connector
 
 """
-To identify the best training rate.
-This script is for determining the best training rate.
+This script is for fine tuning the mBERT model with the best learning rate. 
 """
+
+LBL_TYPE = "LBL"
 
 def is_model_done(model_name):
     print("Start to query ...")
@@ -51,7 +52,7 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
     NUM_CLASSES = len(var.Label_Code_Desc)
     #LEARNING_RATE = 0.001 #0.000035
     SAMPLING_TYPE = var.SAMPLING_TYPE_ORI
-    model_type = "Chk-FB-XLM-R"
+    model_type = "Final-FB-XLM-R" + "_" + LBL_TYPE
     model_name = "FacebookAI/xlm-roberta-base"
 
     print("Testing info: " + EXP_TYPE)
@@ -83,8 +84,8 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
     tokenizer = XLMRobertaTokenizer.from_pretrained(model_name)
     model = XLMRobertaForSequenceClassification.from_pretrained(model_name, num_labels=NUM_CLASSES)
 
-    Result = is_model_done(model_id)
-    #Result = False
+    #Result = is_model_done(model_id)
+    Result = False
     if Result != True:
         ptm.Main_trainingModel_batch(model_id, tokenizer, model, training_txt, training_label, BATCH_SIZE, LEARNING_RATE, start_epochs, end_epochs)
         print("===============")
@@ -95,18 +96,14 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
         print(model_id + " - Skiped")
         print("===============")
 
-LEARNING_RATE_LIST = [1e-1, 1e-3, 1e-5, 1e-7, 1e-9] # 1,3,5,7,9
-DATA_SIZE_LIST = [var.SAMPLING_400, var.SAMPLING_800, var.SAMPLING_1200, var.SAMPLING_1600, var.SAMPLING_2000, var.SAMPLING_2400, var.SAMPLING_2800]
+LEARNING_RATE_LIST = [1e-5] # This is the best learning rate.
+DATA_SIZE_LIST = [var.SAMPLING_400, var.SAMPLING_1600, var.SAMPLING_2800]
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
-
-
 
 for size in DATA_SIZE_LIST:
     for lang in LANG_TYPE_LIST:
         for learning_rate in LEARNING_RATE_LIST:
-            training_process(0, 4, size, lang, learning_rate)
-
-
+            training_process(0, 14, size, lang, learning_rate)
 
 #Single execution
-# training_process(1, 4, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-3)
+#training_process(6, 14, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-5)

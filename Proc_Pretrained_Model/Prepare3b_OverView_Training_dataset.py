@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 def show_eng_df_info(size):
-    file_name = var.FILE_TRAINING_ENG_NOS + str(size) + ".obj"
+    file_name = var.FILE_TRAINING_ENG_NOS_LBL + str(size) + ".obj"
     fileObj = open(file_name, 'rb')
     df = pickle.load(fileObj)
     fileObj.close()
@@ -18,7 +18,7 @@ def show_eng_df_info(size):
     print("-------------------------")
 
 def show_multi_df_info(size):
-    file_name = var.FILE_TRAINING_MUL_NOS + str(size) + ".obj"
+    file_name = var.FILE_TRAINING_MUL_NOS_LBL + str(size) + ".obj"
     fileObj = open(file_name, 'rb')
     df = pickle.load(fileObj)
     fileObj.close()

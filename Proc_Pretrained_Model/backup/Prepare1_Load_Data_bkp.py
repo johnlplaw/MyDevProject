@@ -49,13 +49,22 @@ sql_stmt = """
         cw_my_tm,  
         cw_tm_en,  
         cw_tm_chn,  
-        cw_tm_my  
-    from mydataset;
+        cw_tm_my,
+        CASE
+            WHEN pseudo_label = 'Neutral' THEN 0
+            WHEN pseudo_label = 'Happy' THEN 1
+            WHEN pseudo_label = 'Fear' THEN 2
+            WHEN pseudo_label = 'Surprise' THEN 3
+            WHEN pseudo_label = 'Angry' THEN 4
+            WHEN pseudo_label = 'Sad' THEN 5
+            ELSE '-1'
+        END AS pseudo_label  
+    from mydataset where std_label = pseudo_label
 """
-
 
 class SrcData:
     std_label = -1
+    pseudo_label = -1
 
     cleanedTxt = ""
     translate_chn = ""
@@ -103,7 +112,7 @@ class SrcData:
                  cw_en_chn, cw_en_my, cw_en_tm,
                  cw_chn_en, cw_chn_my, cw_chn_tm,
                  cw_my_en, cw_my_chn, cw_my_tm,
-                 cw_tm_en, cw_tm_chn, cw_tm_my
+                 cw_tm_en, cw_tm_chn, cw_tm_my, pseudo_label
                  ):
         self.std_label = std_label
         self.cleanedTxt = cleanedTxt
@@ -142,6 +151,8 @@ class SrcData:
         self.cw_tm_en = cw_tm_en
         self.cw_tm_chn = cw_tm_chn
         self.cw_tm_my = cw_tm_my
+
+        self.pseudo_label = pseudo_label
 
 
 def get_data_db():
@@ -197,6 +208,8 @@ def get_data_db():
             cw_tm_chn = i[27]
             cw_tm_my = i[28]
 
+            pseudo_label = i[29]
+
             data = SrcData(std_label, cleanedTxt, translate_chn, translate_my, translate_tm,
                            cm_en_chn, cm_en_my, cm_en_tm,
                            cm_chn_en, cm_chn_my, cm_chn_tm,
@@ -205,7 +218,7 @@ def get_data_db():
                            cw_en_chn, cw_en_my, cw_en_tm,
                            cw_chn_en, cw_chn_my, cw_chn_tm,
                            cw_my_en, cw_my_chn, cw_my_tm,
-                           cw_tm_en, cw_tm_chn, cw_tm_my)
+                           cw_tm_en, cw_tm_chn, cw_tm_my, pseudo_label)
             srcdatalist.append(data)
 
     except mysql.connector.Error as error:
@@ -218,110 +231,143 @@ def get_data_db():
 
     return srcdatalist
 
+
 print("Start...")
 # 1. Get the data from database
 print("Step 1: Get the data from database...Start")
 thelist = get_data_db()
+
 print("Step 1: Get the data from database...End")
 
 # 2. Generate English dataset
 print("Step 2: Generate a dataset consists of English only...Start")
 engdb_txt = []
 engdb_label = []
+engdb_plabel = []
 for dt in thelist:
     engdb_txt.append(dt.cleanedTxt)
     engdb_label.append(dt.std_label)
+    engdb_plabel.append(dt.pseudo_label)
 print("Step 2: Generate a dataset consists of English only...End")
 
 # 3. Generate Multilingual dataset
 print("Step 3: Generate a dataset consists of Multilingual...Start")
 multiLang_txt = []
 multiLang_label = []
+multiLang_plabel = []
 for dt in thelist:
     # cleanedtxt,
     multiLang_txt.append(dt.cleanedTxt)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # translate_chn,
     multiLang_txt.append(dt.translate_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # translate_my,
     multiLang_txt.append(dt.translate_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # translate_tm,
     multiLang_txt.append(dt.translate_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_en_chn,
     multiLang_txt.append(dt.cm_en_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_en_my,
     multiLang_txt.append(dt.cm_en_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_en_tm,
     multiLang_txt.append(dt.cm_en_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_chn_en,
     multiLang_txt.append(dt.cm_chn_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_chn_my,
     multiLang_txt.append(dt.cm_chn_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_chn_tm,
     multiLang_txt.append(dt.cm_chn_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_my_en,
     multiLang_txt.append(dt.cm_my_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_my_chn,
     multiLang_txt.append(dt.cm_my_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_my_tm,
     multiLang_txt.append(dt.cm_my_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_tm_en,
     multiLang_txt.append(dt.cm_tm_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_tm_chn,
     multiLang_txt.append(dt.cm_tm_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cm_tm_my,
     multiLang_txt.append(dt.cm_tm_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_en_chn,
     multiLang_txt.append(dt.cw_en_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_en_my,
     multiLang_txt.append(dt.cw_en_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_en_tm,
     multiLang_txt.append(dt.cw_en_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_chn_en,
     multiLang_txt.append(dt.cw_chn_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_chn_my,
     multiLang_txt.append(dt.cw_chn_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_chn_tm,
     multiLang_txt.append(dt.cw_chn_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_my_en,
     multiLang_txt.append(dt.cw_my_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_my_chn,
     multiLang_txt.append(dt.cw_my_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_my_tm,
     multiLang_txt.append(dt.cw_my_tm)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_tm_en,
     multiLang_txt.append(dt.cw_tm_en)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_tm_chn,
     multiLang_txt.append(dt.cw_tm_chn)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
     # cw_tm_my
     multiLang_txt.append(dt.cw_tm_my)
     multiLang_label.append(dt.std_label)
+    multiLang_plabel.append(dt.pseudo_label)
 print("Step 3: Generate a dataset consists of Multilingual...End")
 
 # 4.
@@ -329,6 +375,7 @@ print("Step 3: Generate a dataset consists of Multilingual...End")
 print("Step 4: Generate a dataset consists of combine...Start")
 multiLangComb_txt = []
 multiLangComb_label = []
+multiLangComb_plabel = []
 for dt in thelist:
     theRow = []
     # cleanedtxt
@@ -390,51 +437,104 @@ for dt in thelist:
 
     multiLangComb_txt.append(np.array(theRow))
     multiLangComb_label.append(dt.std_label)
+    multiLangComb_plabel.append(dt.pseudo_label)
 print("Step 4: Generate a dataset consists of combine...End")
 
+"""
 # 5. Over-sampling
 print("Step 5: Over sampling...Start")
 ros = RandomOverSampler(random_state=42)
-## English only
-engdb_txt_resampled_over, engdb_label_resampled_over = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1), engdb_label)
-engdb_txt_resampled_over_list = []
-for item in engdb_txt_resampled_over.tolist():
-    engdb_txt_resampled_over_list.append(item[0])
 
-## Multilingual only
-multiLang_txt_resampled_over, multiLang_label_resampled_over = ros.fit_resample(np.array(multiLang_txt).reshape(-1, 1),
-                                                                                multiLang_label)
-multiLang_txt_resampled_over_list = []
-for item in multiLang_txt_resampled_over.tolist():
-    multiLang_txt_resampled_over_list.append(item[0])
+# 5.1 label
+# ========
+# 5.1.1 English only
+lbl_engdb_txt_resampled_over, lbl_engdb_label_resampled_over = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1),
+                                                                                engdb_label)
+lbl_engdb_txt_resampled_over_list = []
+for item in lbl_engdb_txt_resampled_over.tolist():
+    lbl_engdb_txt_resampled_over_list.append(item[0])
 
-## Multilingual Combine
-multiLangComb_txt_resampled_over, multiLangComb_label_resampled_over = ros.fit_resample(multiLangComb_txt,
-                                                                                        multiLangComb_label)
+# 5.1.2 Multilingual only
+lbl_multiLang_txt_resampled_over, lbl_multiLang_label_resampled_over = ros.fit_resample(
+    np.array(multiLang_txt).reshape(-1, 1),
+    multiLang_label)
+lbl_multiLang_txt_resampled_over_list = []
+for item in lbl_multiLang_txt_resampled_over.tolist():
+    lbl_multiLang_txt_resampled_over_list.append(item[0])
+
+# 5.1.3 Multilingual Combine
+lbl_multiLangComb_txt_resampled_over, lbl_multiLangComb_label_resampled_over = ros.fit_resample(multiLangComb_txt,
+                                                                                                multiLangComb_label)
+
+# 5.2 pseudo label
+# ========
+# 5.2.1 English only
+plbl_engdb_txt_resampled_over, plbl_engdb_label_resampled_over = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1),
+                                                                                  engdb_plabel)
+plbl_engdb_txt_resampled_over_list = []
+for item in plbl_engdb_txt_resampled_over.tolist():
+    plbl_engdb_txt_resampled_over_list.append(item[0])
+
+# 5.2.2 Multilingual only
+plbl_multiLang_txt_resampled_over, plbl_multiLang_label_resampled_over = ros.fit_resample(
+    np.array(multiLang_txt).reshape(-1, 1),
+    multiLang_plabel)
+plbl_multiLang_txt_resampled_over_list = []
+for item in plbl_multiLang_txt_resampled_over.tolist():
+    plbl_multiLang_txt_resampled_over_list.append(item[0])
+
+## 5.2.3 Multilingual Combine
+plbl_multiLangComb_txt_resampled_over, plbl_multiLangComb_label_resampled_over = ros.fit_resample(multiLangComb_txt,
+                                                                                                  multiLangComb_plabel)
+
 print("Step 5: Over sampling...End")
 
 # 6. Under-sampling
 print("Step 6: Under sampling...Start")
 ros = RandomUnderSampler(random_state=42)
-## English only
-engdb_txt_resampled_under, engdb_label_resampled_under = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1),
-                                                                          engdb_label)
-engdb_txt_resampled_under_list = []
-for item in engdb_txt_resampled_under.tolist():
-    engdb_txt_resampled_under_list.append(item[0])
 
-## Multilingual only
-multiLang_txt_resampled_under, multiLang_label_resampled_under = ros.fit_resample(
+# 6.1 pseudo label
+# ========
+# 6.1.1 English only
+lbl_engdb_txt_resampled_under, lbl_engdb_label_resampled_under = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1),
+                                                                                  engdb_label)
+lbl_engdb_txt_resampled_under_list = []
+for item in lbl_engdb_txt_resampled_under.tolist():
+    lbl_engdb_txt_resampled_under_list.append(item[0])
+
+# 6.1.2 Multilingual only
+lbl_multiLang_txt_resampled_under, lbl_multiLang_label_resampled_under = ros.fit_resample(
     np.array(multiLang_txt).reshape(-1, 1), multiLang_label)
-multiLang_txt_resampled_under_list = []
-for item in multiLang_txt_resampled_under.tolist():
-    multiLang_txt_resampled_under_list.append(item[0])
+lbl_multiLang_txt_resampled_under_list = []
+for item in lbl_multiLang_txt_resampled_under.tolist():
+    lbl_multiLang_txt_resampled_under_list.append(item[0])
 
-## Multilingual Combine
-multiLangComb_txt_resampled_under, multiLangComb_label_resampled_under = ros.fit_resample(multiLangComb_txt,
-                                                                                          multiLangComb_label)
+# 6.1.3 Multilingual Combine
+lbl_multiLangComb_txt_resampled_under, lbl_multiLangComb_label_resampled_under = ros.fit_resample(multiLangComb_txt,
+                                                                                                  multiLangComb_label)
+
+# pseudo label
+# ========
+# 6.2.1 English only
+plbl_engdb_txt_resampled_under, plbl_engdb_label_resampled_under = ros.fit_resample(np.array(engdb_txt).reshape(-1, 1),
+                                                                                    engdb_plabel)
+plbl_engdb_txt_resampled_under_list = []
+for item in plbl_engdb_txt_resampled_under.tolist():
+    plbl_engdb_txt_resampled_under_list.append(item[0])
+
+# 6.2.2 Multilingual only
+plbl_multiLang_txt_resampled_under, plbl_multiLang_label_resampled_under = ros.fit_resample(
+    np.array(multiLang_txt).reshape(-1, 1), multiLang_plabel)
+plbl_multiLang_txt_resampled_under_list = []
+for item in plbl_multiLang_txt_resampled_under.tolist():
+    plbl_multiLang_txt_resampled_under_list.append(item[0])
+
+# 6.2.3 Multilingual Combine
+plbl_multiLangComb_txt_resampled_under, plbl_multiLangComb_label_resampled_under = ros.fit_resample(multiLangComb_txt,
+                                                                                                  multiLangComb_plabel)
+
 print("Step 6: Under sampling...End")
-
+"""
 # 7. Save it into physical files
 print("Step 7: Save the files...Start")
 
@@ -443,76 +543,150 @@ if not isExist:
     os.makedirs(var.DIR_OUTPUT)
     print("Directory created successfully!")
 
-#oversampling - start
-
-fileObj = open(var.FILE_OVERSAMPLING_ENG_TEXT_DATASET, 'wb')
-pickle.dump(engdb_txt_resampled_over_list, fileObj)
+"""
+# oversampling - start
+# 7.1.1 label
+fileObj = open(var.FILE_OVERSAMPLING_ENG_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_engdb_txt_resampled_over_list, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_ENG_LABEL_DATASET, 'wb')
-pickle.dump(engdb_label_resampled_over, fileObj)
-fileObj.close()
-
-fileObj = open(var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET, 'wb')
-pickle.dump(multiLang_txt_resampled_over_list, fileObj)
-fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET, 'wb')
-pickle.dump(multiLang_label_resampled_over, fileObj)
+fileObj = open(var.FILE_OVERSAMPLING_ENG_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_engdb_label_resampled_over, fileObj)
 fileObj.close()
 
-fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET, 'wb')
-pickle.dump(multiLangComb_txt_resampled_over, fileObj)
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLang_txt_resampled_over_list, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET, 'wb')
-pickle.dump(multiLangComb_label_resampled_over, fileObj)
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLang_label_resampled_over, fileObj)
 fileObj.close()
+
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLangComb_txt_resampled_over, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLangComb_label_resampled_over, fileObj)
+fileObj.close()
+
+# 7.1.2 pseudo-label
+fileObj = open(var.FILE_OVERSAMPLING_ENG_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_engdb_txt_resampled_over_list, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_OVERSAMPLING_ENG_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_engdb_label_resampled_over, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLang_txt_resampled_over_list, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLang_label_resampled_over, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLangComb_txt_resampled_over, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLangComb_label_resampled_over, fileObj)
+fileObj.close()
+
 # Oversampling - end
 
 # Undersampling - start
-fileObj = open(var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET, 'wb')
-pickle.dump(engdb_txt_resampled_under_list, fileObj)
+
+# 7.2.1 label
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_engdb_txt_resampled_under_list, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET, 'wb')
-pickle.dump(engdb_label_resampled_under, fileObj)
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_engdb_label_resampled_under, fileObj)
 fileObj.close()
 
-fileObj = open(var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET, 'wb')
-pickle.dump(multiLang_txt_resampled_under_list, fileObj)
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLang_txt_resampled_under_list, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET, 'wb')
-pickle.dump(multiLang_label_resampled_under, fileObj)
-fileObj.close()
-
-fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET, 'wb')
-pickle.dump(multiLangComb_txt_resampled_under, fileObj)
-fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET, 'wb')
-pickle.dump(multiLangComb_label_resampled_under, fileObj)
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLang_label_resampled_under, fileObj)
 fileObj.close()
 
-#Undersampling - end
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLangComb_txt_resampled_under, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'wb')
+pickle.dump(lbl_multiLangComb_label_resampled_under, fileObj)
+fileObj.close()
 
+# 7.2.2 pseudo-label
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_engdb_txt_resampled_under_list, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_engdb_label_resampled_under, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLang_txt_resampled_under_list, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLang_label_resampled_under, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLangComb_txt_resampled_under, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(plbl_multiLangComb_label_resampled_under, fileObj)
+fileObj.close()
+
+# Undersampling - end
+"""
 # ORI - start
-
-fileObj = open(var.FILE_NOSAMPLING_ENG_TEXT_DATASET, 'wb')
+# ORI means there is no sampling involved.
+# 7.3.1 label
+#=======
+fileObj = open(var.FILE_NOSAMPLING_ENG_TEXT_DATASET_LBL, 'wb')
 pickle.dump(engdb_txt, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET, 'wb')
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_LBL, 'wb')
 pickle.dump(engdb_label, fileObj)
 fileObj.close()
 
-fileObj = open(var.FILE_NOSAMPLING_MULTI_TEXT_DATASET, 'wb')
+fileObj = open(var.FILE_NOSAMPLING_MULTI_TEXT_DATASET_LBL, 'wb')
 pickle.dump(multiLang_txt, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_NOSAMPLING_MULTI_LABEL_DATASET, 'wb')
+fileObj = open(var.FILE_NOSAMPLING_MULTI_LABEL_DATASET_LBL, 'wb')
 pickle.dump(multiLang_label, fileObj)
 fileObj.close()
 
-fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET, 'wb')
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'wb')
 pickle.dump(multiLangComb_txt, fileObj)
 fileObj.close()
-fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET, 'wb')
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'wb')
 pickle.dump(multiLangComb_label, fileObj)
 fileObj.close()
+
+# 7.3.2 pseudo label
+#=======
+fileObj = open(var.FILE_NOSAMPLING_ENG_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(engdb_txt, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(engdb_plabel, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_NOSAMPLING_MULTI_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(multiLang_txt, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_NOSAMPLING_MULTI_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(multiLang_plabel, fileObj)
+fileObj.close()
+
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_TEXT_DATASET_PLBL, 'wb')
+pickle.dump(multiLangComb_txt, fileObj)
+fileObj.close()
+fileObj = open(var.FILE_NOSAMPLING_MULTICOMB_LABEL_DATASET_PLBL, 'wb')
+pickle.dump(multiLangComb_plabel, fileObj)
+fileObj.close()
+
 # ORI - end
 
 print("Step 7: Save the files...End")

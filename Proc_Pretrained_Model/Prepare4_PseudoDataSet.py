@@ -44,7 +44,7 @@ dataset_size_list = [var.SAMPLING_400, var.SAMPLING_1600, var.SAMPLING_2800]
 
 for size in dataset_size_list:
     langType = "E"
-    df = Get_DataFrame(var.FILE_TRAINING_ENG_NOS, size)
+    df = Get_DataFrame(var.FILE_TRAINING_ENG_NOS_LBL, size)
     print(str(size) + "-" + str(len(df)))
     contentList = []
     for index, row in df.iterrows():
@@ -61,7 +61,7 @@ for size in dataset_size_list:
 
 for size in dataset_size_list:
     langType = "M"
-    df = Get_DataFrame(var.FILE_TRAINING_MUL_NOS, size)
+    df = Get_DataFrame(var.FILE_TRAINING_MUL_NOS_LBL, size)
     print(str(size) + "-" + str(len(df)))
     contentList = []
     for index, row in df.iterrows():

@@ -22,51 +22,51 @@ def unique(list1):
 print("Loading dataset ... start")
 ## Over sampling
 # Example of loading data for English dataset
-fileObj = open(var.FILE_OVERSAMPLING_ENG_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_ENG_TEXT_DATASET_LBL, 'rb')
 engdb_over_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_ENG_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_ENG_LABEL_DATASET_LBL, 'rb')
 engdb_over_label_1 = pickle.load(fileObj)
 fileObj.close()
 
 # Example of loading data for Multilingual dataset
-fileObj = open(var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_TEXT_DATASET_LBL, 'rb')
 multidb_over_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_MULTI_LABEL_DATASET_LBL, 'rb')
 multidb_over_label_1 = pickle.load(fileObj)
 fileObj.close()
 
 # Example of loading data for Multilingual combined dataset
-fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'rb')
 multi_combined_db_over_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_OVERSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'rb')
 multi_combined_db_over_label_1 = pickle.load(fileObj)
 fileObj.close()
 
 ## Under sampling
 # Example of loading data for English dataset
-fileObj = open(var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_TEXT_DATASET_LBL, 'rb')
 engdb_under_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_ENG_LABEL_DATASET_LBL, 'rb')
 engdb_under_label_1 = pickle.load(fileObj)
 fileObj.close()
 
 # Example of loading data for Multilingual dataset
-fileObj = open(var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_TEXT_DATASET_LBL, 'rb')
 multidb_under_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_MULTI_LABEL_DATASET_LBL, 'rb')
 multidb_under_label_1 = pickle.load(fileObj)
 fileObj.close()
 
 # Example of loading data for Multilingual combined dataset
-fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_TEXT_DATASET_LBL, 'rb')
 multi_combined_db_under_txt_1 = pickle.load(fileObj)
 fileObj.close()
-fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET, 'rb')
+fileObj = open(var.FILE_UNDERSAMPLING_MULTICOMB_LABEL_DATASET_LBL, 'rb')
 multi_combined_db_under_label_1 = pickle.load(fileObj)
 fileObj.close()
 

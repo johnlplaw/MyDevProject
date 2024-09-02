@@ -10,7 +10,7 @@ LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 DATA_SIZE = var.SAMPLING_2800
 OUTPUT_PATH = "./output/"
 def load_df(lang, size):
-    file_name = ptm.get_DF_file_path(lang, size)
+    file_name = ptm.get_DF_LBL_file_path(lang, size)
     print("DataFrame file: " + file_name)
     fileObj = open(file_name, 'rb')
     df = pickle.load(fileObj)

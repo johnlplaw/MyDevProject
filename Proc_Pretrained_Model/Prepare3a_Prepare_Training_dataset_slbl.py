@@ -9,7 +9,7 @@ def create_training_eng (sampling_size):
     :return: a dataframe with a samling size
     """
     # 1. Read the dataframe object
-    source_file = var.FILE_MULTICOMB_DF + str(sampling_size) + ".obj"
+    source_file = var.FILE_MULTICOMB_DF_SLBL + str(sampling_size) + ".obj"
     fileObj = open(source_file, 'rb')
     source_df = pickle.load(fileObj)
     fileObj.close()
@@ -21,7 +21,7 @@ def create_training_eng (sampling_size):
 
 def create_training_multi (sampling_size):
     # 1. Read the dataframe object
-    source_file = var.FILE_MULTICOMB_DF + str(sampling_size) + ".obj"
+    source_file = var.FILE_MULTICOMB_DF_SLBL + str(sampling_size) + ".obj"
     fileObj = open(source_file, 'rb')
     source_df = pickle.load(fileObj)
     fileObj.close()
@@ -37,20 +37,21 @@ def create_training_multi (sampling_size):
     return new_df
 
 
-# for size in var.sampling_size_list:
-# #for size in [var.SAMPLING_3200, var.SAMPLING_3600]:
-#     print("Work on " + str(size))
-#     eng_df = create_training_eng(size)
-#     multi_df = create_training_multi(size)
-#
-#     fileObj = open(var.FILE_TRAINING_ENG_NOS + str(size) + ".obj", 'wb')
-#     pickle.dump(eng_df, fileObj)
-#     fileObj.close()
-#     fileObj = open(var.FILE_TRAINING_MUL_NOS + str(size) + ".obj", 'wb')
-#     pickle.dump(multi_df, fileObj)
-#     fileObj.close()
+for size in var.sampling_size_list:
+#for size in [var.SAMPLING_3200, var.SAMPLING_3600]:
+    print("Work on " + str(size))
+    eng_df = create_training_eng(size)
+    multi_df = create_training_multi(size)
 
-size = 400
-fileObj = open(var.FILE_TRAINING_MUL_NOS + str(size) + ".obj", 'rb')
-multi_df = pickle.load(fileObj)
-fileObj.close()
+    fileObj = open(var.FILE_TRAINING_ENG_NOS_SLBL + str(size) + ".obj", 'wb')
+    pickle.dump(eng_df, fileObj)
+    fileObj.close()
+    fileObj = open(var.FILE_TRAINING_MUL_NOS_SLBL + str(size) + ".obj", 'wb')
+    pickle.dump(multi_df, fileObj)
+    fileObj.close()
+
+# Sample to read the created dataset with a particular size
+# size = 400
+# fileObj = open(var.FILE_TRAINING_MUL_NOS + str(size) + ".obj", 'rb')
+# multi_df = pickle.load(fileObj)
+# fileObj.close()
