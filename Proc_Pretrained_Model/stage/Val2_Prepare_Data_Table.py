@@ -81,7 +81,7 @@ def prepare_table(OUTPUT_PATH, LANG_TYPE):
 
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 DATA_SIZE = var.SAMPLING_2800
-OUTPUT_PATH = "./output/"
+OUTPUT_PATH = "../output/"
 
 for LANG_TYPE in LANG_TYPE_LIST:
     df = prepare_table(OUTPUT_PATH, LANG_TYPE)

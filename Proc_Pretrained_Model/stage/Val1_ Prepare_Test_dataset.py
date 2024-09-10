@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 DATA_SIZE = var.SAMPLING_2800
-OUTPUT_PATH = "./output/"
+OUTPUT_PATH = "../output/"
 def load_df(lang, size):
     file_name = ptm.get_DF_LBL_file_path(lang, size)
     print("DataFrame file: " + file_name)

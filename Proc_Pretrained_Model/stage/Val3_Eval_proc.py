@@ -32,7 +32,7 @@ COL_XLMR_MUL_2800 = "xlmr_mul_2800"
 
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 DATA_SIZE = var.SAMPLING_2800
-OUTPUT_PATH = "./output/"
+OUTPUT_PATH = "../output/"
 
 class Selected_Model:
     """
