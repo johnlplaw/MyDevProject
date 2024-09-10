@@ -513,6 +513,15 @@ def get_DF_PLBL_file_path(lang, size):
 
     return file_name
 
+def get_DF_SLBL_file_path(lang, size):
+    file_name = ""
+    if lang == var.LANG_TYPE_ENG:
+        file_name = var.FILE_TRAINING_ENG_NOS_SLBL + str(size) + ".obj"
+    elif lang == var.LANG_TYPE_MULTI:
+        file_name = var.FILE_TRAINING_MUL_NOS_SLBL + str(size) + ".obj"
+
+    return file_name
+
 def get_DF_column_name(lang):
     col_name = ""
     if lang == var.LANG_TYPE_ENG:
