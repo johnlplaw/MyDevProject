@@ -12,7 +12,7 @@ import mysql.connector
 This script is for fine tuning the mBERT model with the best learning rate. 
 """
 
-LBL_TYPE = "LBL"
+LBL_TYPE = "PLBL"
 
 def is_model_done(model_name):
     print("Start to query ...")
