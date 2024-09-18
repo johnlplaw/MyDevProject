@@ -84,8 +84,9 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
     tokenizer = XLMRobertaTokenizer.from_pretrained(model_name)
     model = XLMRobertaForSequenceClassification.from_pretrained(model_name, num_labels=NUM_CLASSES)
 
-    #Result = is_model_done(model_id)
-    Result = False
+    #Change 1: start
+    Result = is_model_done(model_id)
+    #Change : end
     if Result != True:
         ptm.Main_trainingModel_batch(model_id, tokenizer, model, training_txt, training_label, BATCH_SIZE, LEARNING_RATE, start_epochs, end_epochs)
         print("===============")
@@ -100,10 +101,12 @@ LEARNING_RATE_LIST = [1e-5] # This is the best learning rate.
 DATA_SIZE_LIST = [var.SAMPLING_400, var.SAMPLING_1600, var.SAMPLING_2800]
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 
+# Change 2: start
 for size in DATA_SIZE_LIST:
     for lang in LANG_TYPE_LIST:
         for learning_rate in LEARNING_RATE_LIST:
             training_process(0, 14, size, lang, learning_rate)
 
-#Single execution
-#training_process(6, 14, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-5)
+##Single execution
+#training_process(0, 14, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-5)
+# Change 2; end
