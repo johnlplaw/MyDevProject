@@ -97,6 +97,9 @@ def training_process(start_epochs, end_epochs, DATA_SIZE, LANG_TYPE, LEARNING_RA
         print("===============")
 
 LEARNING_RATE_LIST = [1e-5] # This is the best learning rate.
+
+#Option2: Start
+#Batch process
 DATA_SIZE_LIST = [var.SAMPLING_400, var.SAMPLING_1600, var.SAMPLING_2800]
 LANG_TYPE_LIST = [var.LANG_TYPE_ENG, var.LANG_TYPE_MULTI]
 
@@ -106,4 +109,5 @@ for size in DATA_SIZE_LIST:
             training_process(0, 14, size, lang, learning_rate)
 
 #Single execution
-#training_process(6, 14, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-5)
+#training_process(0, 14, var.SAMPLING_2800, var.LANG_TYPE_MULTI, 1e-5)
+#Option2: Start
