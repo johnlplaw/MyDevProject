@@ -58,6 +58,8 @@ FILE_MULTICOMB_DF_LBL = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_lbl
 FILE_TRAINING_ENG_NOS_LBL = DIR_OUTPUT + "DataFrame_training_eng_nos_lbl_"
 FILE_TRAINING_MUL_NOS_LBL = DIR_OUTPUT + "DataFrame_training_multi_nos_lbl_"
 
+FILE_TRAINING_GPT_MUL_NOS_LBL = DIR_OUTPUT + "DataFrame_chatgpt_resampling_"
+
 FILE_MULTICOMB_DF_PLBL = DIR_OUTPUT + "DataFrame_multiLangComb_nos_resampling_plbl_"
 FILE_TRAINING_ENG_NOS_PLBL = DIR_OUTPUT + "DataFrame_training_eng_nos_plbl_"
 FILE_TRAINING_MUL_NOS_PLBL = DIR_OUTPUT + "DataFrame_training_multi_nos_plbl_"
