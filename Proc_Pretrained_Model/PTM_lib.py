@@ -522,6 +522,13 @@ def get_DF_SLBL_file_path(lang, size):
 
     return file_name
 
+def get_DF_gpt_LBL_file_path(lang, size, labelType):
+    if lang == var.LANG_TYPE_ENG:
+        file_name = ""
+    elif lang == var.LANG_TYPE_MULTI:
+        file_name = var.FILE_TRAINING_GPT_MUL_NOS_LBL + str(size) + "_" + labelType + ".obj"
+    return file_name
+
 def get_DF_column_name(lang):
     col_name = ""
     if lang == var.LANG_TYPE_ENG:

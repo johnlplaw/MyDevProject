@@ -58,7 +58,7 @@ for labelType in labelList:
         # Working on each column
         for emotion in emotion_list:
             print("  Working on: " + var.Label_Code_Desc.get(emotion))
-            filtered_df = df[df[labelType] == var.Label_Code_Desc.get(emotion)]
+            filtered_df = df[df[labelType] == emotion]
             print(filtered_df.head(5))
             if len(filtered_df) > sampling_size:
                 subSample_size = sampling_size

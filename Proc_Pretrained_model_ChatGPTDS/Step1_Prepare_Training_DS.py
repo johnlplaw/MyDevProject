@@ -28,8 +28,8 @@ def Get_ChatGPT_Data():
         for i in result:
             id = i[0]
             txt = i[1]
-            label = i[2]
-            plabel = i[3]
+            label = var.Label_Desc_Code[i[2]]
+            plabel = var.Label_Desc_Code[i[3]]
             data = GPTTextData(id, txt, label, plabel)
             TextList.append(data)
 
