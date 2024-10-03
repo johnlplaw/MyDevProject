@@ -49,7 +49,7 @@ def plotGraph(Title, performDataList, ylabel):
 # Functions - end
 
 #Step0: Env Setting
-dataFile = "./TrainingModelTrainingProcess.csv"
+dataFile = "./TrainingModelTrainingProcess_phrase1.csv"
 dataSizeList = ['400', '1600', '2800']
 langTypeList = ['English', 'Multilingual']
 modelTypeList = ['FB-XLM-R', 'mBERT']
