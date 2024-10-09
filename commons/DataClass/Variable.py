@@ -3,6 +3,7 @@
 DIR_OUTPUT = "output/"
 FILE_NOSAMPLING_CHATGPT_TEXT_DATASET = DIR_OUTPUT + "Dataset_ChatGPT_txt_nos.obj"
 
+NUM_CLASSES = 6
 
 # Sampling size
 SAMPLING_400 = 400
