@@ -1,0 +1,728 @@
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/bin/python /Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/Proc_Analysis_phrase2/Step3_Proc_Performance_EvaTweet.py
+Start to query ...
+Finish query ...
+MySQL connection is closed
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[1695  556  197  296 1320  273]
+ [ 859  208  136   43  246  122]
+ [2206  116  257   76  799  155]
+ [ 705   60  191   47  379  106]
+ [ 300   27   82    9  201   49]
+ [1123   70  227   56  722  184]]
+Accuracy: 0.18385586608029508
+Precision (Micro): 0.18385586608029508
+Recall (Micro): 0.18385586608029508
+F1-score (Micro): 0.18385586608029508
+Precision (Macro): 0.17223498928905015
+Recall (Macro): 0.16677276917012726
+F1-score (Macro): 0.13669980927872574
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.25      0.39      0.30      4337
+           1       0.20      0.13      0.16      1614
+           2       0.24      0.07      0.11      3609
+           3       0.09      0.03      0.05      1488
+           4       0.05      0.30      0.09       668
+           5       0.21      0.08      0.11      2382
+
+    accuracy                           0.18     14098
+   macro avg       0.17      0.17      0.14     14098
+weighted avg       0.21      0.18      0.17     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2428  737  459  233  179  301]
+ [ 206  965  116   72  127  128]
+ [ 657 1076  711  169  502  494]
+ [ 299  387  217  166  163  256]
+ [ 140  122   96   32  182   96]
+ [ 393  481  338   85  395  690]]
+Accuracy: 0.3647325861824372
+Precision (Micro): 0.3647325861824372
+Recall (Micro): 0.3647325861824372
+F1-score (Micro): 0.3647325861824372
+Precision (Macro): 0.3166768068269212
+Recall (Macro): 0.33807027901254866
+F1-score (Macro): 0.30310057730866896
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.59      0.56      0.57      4337
+           1       0.26      0.60      0.36      1614
+           2       0.37      0.20      0.26      3609
+           3       0.22      0.11      0.15      1488
+           4       0.12      0.27      0.16       668
+           5       0.35      0.29      0.32      2382
+
+    accuracy                           0.36     14098
+   macro avg       0.32      0.34      0.30     14098
+weighted avg       0.39      0.36      0.36     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-slbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2951  360   87  632   58  249]
+ [ 960  303   43   92   25  191]
+ [2695  139  156  192  173  254]
+ [1022   63   43  183   50  127]
+ [ 462   13   44   42   39   68]
+ [1557   70  158  314   69  214]]
+Accuracy: 0.2728046531422897
+Precision (Micro): 0.2728046531422897
+Recall (Micro): 0.2728046531422897
+F1-score (Micro): 0.2728046531422897
+Precision (Macro): 0.22221603069201037
+Recall (Macro): 0.1970982405429328
+F1-score (Macro): 0.1755356206114748
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.31      0.68      0.42      4337
+           1       0.32      0.19      0.24      1614
+           2       0.29      0.04      0.08      3609
+           3       0.13      0.12      0.12      1488
+           4       0.09      0.06      0.07       668
+           5       0.19      0.09      0.12      2382
+
+    accuracy                           0.27     14098
+   macro avg       0.22      0.20      0.18     14098
+weighted avg       0.26      0.27      0.21     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-gpt-slbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[1877   99  583  253 1269  256]
+ [ 428  157  480  146  331   72]
+ [ 883  254 1281  158  785  248]
+ [ 367   69  441  147  394   70]
+ [ 132    8  255   44  196   33]
+ [ 406  105 1090   89  563  129]]
+Accuracy: 0.2686196623634558
+Precision (Micro): 0.2686196623634558
+Recall (Micro): 0.2686196623634558
+F1-score (Micro): 0.2686196623634558
+Precision (Macro): 0.23105252881009666
+Recall (Macro): 0.22189452182272693
+F1-score (Macro): 0.20217682416557606
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.46      0.43      0.45      4337
+           1       0.23      0.10      0.14      1614
+           2       0.31      0.35      0.33      3609
+           3       0.18      0.10      0.13      1488
+           4       0.06      0.29      0.09       668
+           5       0.16      0.05      0.08      2382
+
+    accuracy                           0.27     14098
+   macro avg       0.23      0.22      0.20     14098
+weighted avg       0.29      0.27      0.27     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2311  299  803  292  214  418]
+ [  84  778  399  104   98  151]
+ [ 172  404 2056  293  280  404]
+ [ 101  159  437  406  152  233]
+ [  49   51  171   74  233   90]
+ [ 141  295  899  231  225  591]]
+Accuracy: 0.4521918002553554
+Precision (Micro): 0.4521918002553554
+Recall (Micro): 0.4521918002553554
+F1-score (Micro): 0.4521918002553554
+Precision (Macro): 0.4048113823236658
+Recall (Macro): 0.4090564357071793
+F1-score (Macro): 0.3954829341889459
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.81      0.53      0.64      4337
+           1       0.39      0.48      0.43      1614
+           2       0.43      0.57      0.49      3609
+           3       0.29      0.27      0.28      1488
+           4       0.19      0.35      0.25       668
+           5       0.31      0.25      0.28      2382
+
+    accuracy                           0.45     14098
+   macro avg       0.40      0.41      0.40     14098
+weighted avg       0.50      0.45      0.46     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-lsbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3015   51  568  134  397  172]
+ [ 308  285  717   93  159   52]
+ [ 549   93 2501  105  287   74]
+ [ 303   42  741  175  180   47]
+ [  91   13  289   42  202   31]
+ [ 294   57 1492   90  277  172]]
+Accuracy: 0.4504184990778834
+Precision (Micro): 0.4504184990778834
+Recall (Micro): 0.4504184990778834
+F1-score (Micro): 0.4504184990778834
+Precision (Macro): 0.3844480776949748
+Recall (Macro): 0.34282693983949036
+F1-score (Macro): 0.31912939729809303
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.66      0.70      0.68      4337
+           1       0.53      0.18      0.26      1614
+           2       0.40      0.69      0.50      3609
+           3       0.27      0.12      0.16      1488
+           4       0.13      0.30      0.19       668
+           5       0.31      0.07      0.12      2382
+
+    accuracy                           0.45     14098
+   macro avg       0.38      0.34      0.32     14098
+weighted avg       0.45      0.45      0.41     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-syn-lsbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2086  266  189   91 1204  501]
+ [ 352  243  181  104  569  165]
+ [ 669  404  520   83 1771  162]
+ [ 395  148  189   47  605  104]
+ [ 173   54   92   16  287   46]
+ [ 472  172  620   54  933  131]]
+Accuracy: 0.23506880408568592
+Precision (Micro): 0.23506880408568592
+Recall (Micro): 0.23506880408568592
+F1-score (Micro): 0.23506880408568592
+Precision (Macro): 0.2121221342615931
+Recall (Macro): 0.21530700515041787
+F1-score (Macro): 0.1786535021136366
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.50      0.48      0.49      4337
+           1       0.19      0.15      0.17      1614
+           2       0.29      0.14      0.19      3609
+           3       0.12      0.03      0.05      1488
+           4       0.05      0.43      0.10       668
+           5       0.12      0.05      0.08      2382
+
+    accuracy                           0.24     14098
+   macro avg       0.21      0.22      0.18     14098
+weighted avg       0.29      0.24      0.24     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3518   44  490   73   46  166]
+ [ 321  459  491   93   85  165]
+ [ 588   49 2252  186   89  445]
+ [ 350   33  396  469   42  198]
+ [ 187    8  130   39  184  120]
+ [ 486   49  636  162   75  974]]
+Accuracy: 0.5572421620087956
+Precision (Micro): 0.5572421620087956
+Recall (Micro): 0.5572421620087956
+F1-score (Micro): 0.5572421620087956
+Precision (Macro): 0.5259859782913457
+Recall (Macro): 0.45317988823560085
+F1-score (Macro): 0.4682513584715553
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.65      0.81      0.72      4337
+           1       0.71      0.28      0.41      1614
+           2       0.51      0.62      0.56      3609
+           3       0.46      0.32      0.37      1488
+           4       0.35      0.28      0.31       668
+           5       0.47      0.41      0.44      2382
+
+    accuracy                           0.56     14098
+   macro avg       0.53      0.45      0.47     14098
+weighted avg       0.56      0.56      0.54     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-slbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3285   44  532   61  169  246]
+ [ 319  307  694   62   99  133]
+ [ 610   84 2423   74  186  232]
+ [ 391   31  629  171  132  134]
+ [ 152    9  258   36  163   50]
+ [ 442   49 1329   52  190  320]]
+Accuracy: 0.47304582210242585
+Precision (Micro): 0.47304582210242585
+Recall (Micro): 0.47304582210242585
+F1-score (Micro): 0.47304582210242585
+Precision (Macro): 0.411073885285897
+Recall (Macro): 0.35204933435018004
+F1-score (Macro): 0.3415766653056543
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.63      0.76      0.69      4337
+           1       0.59      0.19      0.29      1614
+           2       0.41      0.67      0.51      3609
+           3       0.38      0.11      0.18      1488
+           4       0.17      0.24      0.20       668
+           5       0.29      0.13      0.18      2382
+
+    accuracy                           0.47     14098
+   macro avg       0.41      0.35      0.34     14098
+weighted avg       0.46      0.47      0.43     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: mBERT-e-slbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2840  310  186  145  690  166]
+ [1070  168   44   31  238   63]
+ [2762   34  165   38  519   91]
+ [ 953   26  116   71  263   59]
+ [ 414    9   56   17  134   38]
+ [1405   39  167   44  593  134]]
+Accuracy: 0.249113349411264
+Precision (Micro): 0.249113349411264
+Recall (Micro): 0.249113349411264
+F1-score (Micro): 0.249113349411264
+Precision (Macro): 0.21926453943366242
+Recall (Macro): 0.1848679811565419
+F1-score (Macro): 0.14933101612483105
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.30      0.65      0.41      4337
+           1       0.29      0.10      0.15      1614
+           2       0.22      0.05      0.08      3609
+           3       0.21      0.05      0.08      1488
+           4       0.05      0.20      0.09       668
+           5       0.24      0.06      0.09      2382
+
+    accuracy                           0.25     14098
+   macro avg       0.22      0.18      0.15     14098
+weighted avg       0.25      0.25      0.19     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3036  269  260  340  126  306]
+ [ 545  557   93  137   42  240]
+ [1515  195  531  215  214  939]
+ [ 526   78  166  300   49  369]
+ [ 260   23   53   65  104  163]
+ [ 811  108  137  118  126 1082]]
+Accuracy: 0.39792878422471273
+Precision (Micro): 0.39792878422471273
+Recall (Micro): 0.39792878422471273
+F1-score (Micro): 0.39792878422471273
+Precision (Macro): 0.3494134973895795
+Recall (Macro): 0.33396703594781824
+F1-score (Macro): 0.3229752693507135
+Classification Report:
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/Proc_Analysis_phrase2/Analysis_Lib.py:385: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure(figsize=(8, 6))
+              precision    recall  f1-score   support
+
+           0       0.45      0.70      0.55      4337
+           1       0.45      0.35      0.39      1614
+           2       0.43      0.15      0.22      3609
+           3       0.26      0.20      0.23      1488
+           4       0.16      0.16      0.16       668
+           5       0.35      0.45      0.39      2382
+
+    accuracy                           0.40     14098
+   macro avg       0.35      0.33      0.32     14098
+weighted avg       0.39      0.40      0.37     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-slbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3068  339  254  116  176  384]
+ [ 947  248   83   23   93  220]
+ [2474  104  217   39  276  499]
+ [ 796   55  129   85  142  281]
+ [ 332   12   83    5   68  168]
+ [1096   64  231   15  358  618]]
+Accuracy: 0.3052915307135764
+Precision (Micro): 0.3052915307135764
+Recall (Micro): 0.3052915307135764
+F1-score (Micro): 0.3052915307135764
+Precision (Macro): 0.25295262793610346
+Recall (Macro): 0.2232583849780314
+F1-score (Macro): 0.20198508879606933
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.35      0.71      0.47      4337
+           1       0.30      0.15      0.20      1614
+           2       0.22      0.06      0.09      3609
+           3       0.30      0.06      0.10      1488
+           4       0.06      0.10      0.08       668
+           5       0.28      0.26      0.27      2382
+
+    accuracy                           0.31     14098
+   macro avg       0.25      0.22      0.20     14098
+weighted avg       0.28      0.31      0.25     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-gpt-slbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[1840  104  437  429  983  544]
+ [ 327  273  275  238  381  120]
+ [ 708  350  835  362 1173  181]
+ [ 270   89  366  215  451   97]
+ [ 148   11  165   64  232   48]
+ [ 327  105  718  210  845  177]]
+Accuracy: 0.25336927223719674
+Precision (Micro): 0.25336927223719674
+Recall (Micro): 0.25336927223719674
+F1-score (Micro): 0.25336927223719674
+Precision (Macro): 0.2417039856366295
+Recall (Macro): 0.23181155842250523
+F1-score (Macro): 0.21308373799524347
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.51      0.42      0.46      4337
+           1       0.29      0.17      0.21      1614
+           2       0.30      0.23      0.26      3609
+           3       0.14      0.14      0.14      1488
+           4       0.06      0.35      0.10       668
+           5       0.15      0.07      0.10      2382
+
+    accuracy                           0.25     14098
+   macro avg       0.24      0.23      0.21     14098
+weighted avg       0.31      0.25      0.27     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[2886   93  519  357  218  264]
+ [ 117  470  486  244  157  140]
+ [ 263   92 1994  549  373  338]
+ [ 182   24  423  615  161   83]
+ [  50    6  139  134  270   69]
+ [ 201   69  851  534  325  402]]
+Accuracy: 0.47077599659526176
+Precision (Micro): 0.47077599659526176
+Recall (Micro): 0.47077599659526176
+F1-score (Micro): 0.47077599659526176
+Precision (Macro): 0.4329971811124722
+Recall (Macro): 0.4159017253198441
+F1-score (Macro): 0.39888890864383847
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.78      0.67      0.72      4337
+           1       0.62      0.29      0.40      1614
+           2       0.45      0.55      0.50      3609
+           3       0.25      0.41      0.31      1488
+           4       0.18      0.40      0.25       668
+           5       0.31      0.17      0.22      2382
+
+    accuracy                           0.47     14098
+   macro avg       0.43      0.42      0.40     14098
+weighted avg       0.51      0.47      0.48     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-slbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3221   32  334  155  570   25]
+ [ 358  389  435  157  252   23]
+ [ 717  183 1835  301  545   28]
+ [ 336   48  532  253  299   20]
+ [ 104    6  189   54  306    9]
+ [ 395   87  976  176  640  108]]
+Accuracy: 0.4335366718683501
+Precision (Micro): 0.4335366718683501
+Recall (Micro): 0.4335366718683501
+F1-score (Micro): 0.4335366718683501
+Precision (Macro): 0.4052631282532811
+Recall (Macro): 0.36093287322519996
+F1-score (Macro): 0.32330172372835675
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.63      0.74      0.68      4337
+           1       0.52      0.24      0.33      1614
+           2       0.43      0.51      0.46      3609
+           3       0.23      0.17      0.20      1488
+           4       0.12      0.46      0.19       668
+           5       0.51      0.05      0.08      2382
+
+    accuracy                           0.43     14098
+   macro avg       0.41      0.36      0.32     14098
+weighted avg       0.48      0.43      0.41     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-syn-slbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-lbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[1394  226  565  200 1526  426]
+ [ 193  158  504  108  563   88]
+ [ 313  148 1355  116 1531  146]
+ [ 176   66  416  114  618   98]
+ [  60   33  223   27  291   34]
+ [ 243   74  779   71 1117   98]]
+Accuracy: 0.24187828060717834
+Precision (Micro): 0.24187828060717834
+Recall (Micro): 0.24187828060717834
+F1-score (Micro): 0.24187828060717834
+Precision (Macro): 0.25060890243915385
+Recall (Macro): 0.22469126260680206
+F1-score (Macro): 0.19575436719317196
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.59      0.32      0.42      4337
+           1       0.22      0.10      0.14      1614
+           2       0.35      0.38      0.36      3609
+           3       0.18      0.08      0.11      1488
+           4       0.05      0.44      0.09       668
+           5       0.11      0.04      0.06      2382
+
+    accuracy                           0.24     14098
+   macro avg       0.25      0.22      0.20     14098
+weighted avg       0.34      0.24      0.26     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-lbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-plbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3294  104  477  228  177   57]
+ [ 206  703  389  182   64   70]
+ [ 334  142 2255  538  169  171]
+ [ 203   53  386  681  112   53]
+ [  87   16  152   70  313   30]
+ [ 341  107  777  336  207  614]]
+Accuracy: 0.5575258901971911
+Precision (Micro): 0.5575258901971911
+Recall (Micro): 0.5575258901971911
+F1-score (Micro): 0.5575258901971911
+Precision (Macro): 0.5205134562273604
+Recall (Macro): 0.5006487614269974
+F1-score (Macro): 0.4897849159147247
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.74      0.76      0.75      4337
+           1       0.62      0.44      0.51      1614
+           2       0.51      0.62      0.56      3609
+           3       0.33      0.46      0.39      1488
+           4       0.30      0.47      0.37       668
+           5       0.62      0.26      0.36      2382
+
+    accuracy                           0.56     14098
+   macro avg       0.52      0.50      0.49     14098
+weighted avg       0.58      0.56      0.55     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-plbl ... done
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-slbl ... start
+Start to query ...
+Finish query ...
+MySQL connection is closed
+14098
+14098
+Confusion Matrix:
+[[3358   77  389   99  291  123]
+ [ 344  452  475   98  172   73]
+ [ 596  192 2217  107  389  108]
+ [ 340   49  578  254  220   47]
+ [ 119   13  201   26  269   40]
+ [ 387   92 1162  108  385  248]]
+Accuracy: 0.4821960561781813
+Precision (Micro): 0.4821960561781813
+Recall (Micro): 0.4821960561781813
+F1-score (Micro): 0.4821960561781813
+Precision (Macro): 0.4203064187814236
+Recall (Macro): 0.3910204680099268
+F1-score (Macro): 0.367871967232054
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.65      0.77      0.71      4337
+           1       0.52      0.28      0.36      1614
+           2       0.44      0.61      0.51      3609
+           3       0.37      0.17      0.23      1488
+           4       0.16      0.40      0.22       668
+           5       0.39      0.10      0.16      2382
+
+    accuracy                           0.48     14098
+   macro avg       0.42      0.39      0.37     14098
+weighted avg       0.48      0.48      0.45     14098
+
+Label in ROC Curve:
+['0' '1' '2' '3' '4' '5']
+--->6
+DatasetType: tweets, LabelType:pla
+Working on: FB-XLM-R-e-slbl ... done
+
+Process finished with exit code 0

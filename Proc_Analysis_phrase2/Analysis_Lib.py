@@ -278,3 +278,200 @@ def update_prediction_result(textDataList, tablename, colname):
             mycursor.close()
             conn.close()
             print("MySQL connection is closed")
+
+CleanTxt = "AND NOT (GPT_LBL_XMLB= 'X' or GPT_PLBL_XMLB= 'X' or GPT_SLBL_XMLB= 'X' or GPT_LBL_MBERT= 'X' or GPT_PLBL_MBERT= 'X' or GPT_SLBL_MBERT= 'X' or SYN_LBL_XMLB= 'X' or SYN_PLBL_XMLB= 'X' or SYN_SLBL_XMLB= 'X' or SYN_LBL_MBERT= 'X' or SYN_PLBL_MBERT= 'X' or SYN_SLBL_MBERT= 'X' or SYN_LBL_XMLB_E= 'X' or SYN_PLBL_XMLB_E= 'X' or SYN_SLBL_XMLB_E= 'X' or SYN_LBL_MBERT_E= 'X' or SYN_PLBL_MBERT_E= 'X' or SYN_SLBL_MBERTE= 'X') "
+
+def get_Label_List(tableName, colName, dsType, labelType):
+    """
+    Query the cleanned text info.
+    :return:
+    """
+
+    print("Start to query ...")
+    LabelList = []
+    try:
+        conn = sqlHelper.get_mysql_conn()
+        mycursor = conn.cursor()
+        Select_sql = "select " + colName + " from " + tableName + " where dstype = '" + dsType + "' and labeltype = '" + labelType + "' " + CleanTxt
+
+        mycursor.execute(Select_sql)
+        result = mycursor.fetchall()
+
+        for i in result:
+            label = i[0]
+            LabelList.append(label)
+        print("Finish query ...")
+    except mysql.connector.Error as error:
+        print("Failed to select record to database: {}".format(error))
+    finally:
+        if conn.is_connected():
+            mycursor.close()
+            conn.close()
+            print("MySQL connection is closed")
+
+    return LabelList
+
+def get_Label_List_tweets(tableName, colName):
+    """
+    Query the cleanned text info.
+    :return:
+    """
+
+    print("Start to query ...")
+    LabelList = []
+    try:
+        conn = sqlHelper.get_mysql_conn()
+        mycursor = conn.cursor()
+        Select_sql = "select " + colName + " from " + tableName
+
+        mycursor.execute(Select_sql)
+        result = mycursor.fetchall()
+
+        for i in result:
+            label = i[0]
+            LabelList.append(label)
+        print("Finish query ...")
+    except mysql.connector.Error as error:
+        print("Failed to select record to database: {}".format(error))
+    finally:
+        if conn.is_connected():
+            mycursor.close()
+            conn.close()
+            print("MySQL connection is closed")
+
+    return LabelList
+
+
+def analysis_compare (model_name, y_true_multi, y_pred_multi, labelList, evaType):
+    """
+    If the pseudo-labelling is standard, how other models performs if compare to the pseudo-labelling.
+    :param model_name: The model name
+    :param y_true_multi: The pseudo-labelling list
+    :param y_pred_multi: The predicted label list from the model
+    :return:
+    """
+
+    outPath = "./outputPerformance/"
+    # Calculate confusion matrix
+    conf_matrix_multi = confusion_matrix(y_true_multi, y_pred_multi, labels=labelList)
+
+    # Calculate evaluation metrics
+    accuracy_multi = accuracy_score(y_true_multi, y_pred_multi)
+    precision_micro = precision_score(y_true_multi, y_pred_multi, average='micro')
+    recall_micro = recall_score(y_true_multi, y_pred_multi, average='micro')
+    f1_micro = f1_score(y_true_multi, y_pred_multi, average='micro')
+
+    precision_macro = precision_score(y_true_multi, y_pred_multi, average='macro')
+    recall_macro = recall_score(y_true_multi, y_pred_multi, average='macro')
+    f1_macro = f1_score(y_true_multi, y_pred_multi, average='macro')
+
+    # Print evaluation metrics
+    print("Confusion Matrix:")
+    print(conf_matrix_multi)
+    print("Accuracy:", accuracy_multi)
+    print("Precision (Micro):", precision_micro)
+    print("Recall (Micro):", recall_micro)
+    print("F1-score (Micro):", f1_micro)
+    print("Precision (Macro):", precision_macro)
+    print("Recall (Macro):", recall_macro)
+    print("F1-score (Macro):", f1_macro)
+
+    # Classification report
+    print("Classification Report:")
+    print(classification_report(y_true_multi, y_pred_multi))
+
+
+    # Plot confusion matrix
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(conf_matrix_multi, annot=True, fmt='d', cmap='Blues', cbar=False, square=True, xticklabels=labelList, yticklabels=labelList)
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    # Save the plotted graph
+    plt.savefig(outPath + model_name + '_conf_matrix' + evaType + '.png')
+
+
+
+    # Compute ROC curve and ROC area for each class
+
+    # Encode labels into numerical representations
+    label_encoder = LabelEncoder()
+    y_true_encoded = label_encoder.fit_transform(y_true_multi)
+    y_pred_encoded = label_encoder.transform(y_pred_multi)
+
+    labelList = label_encoder.classes_
+    print("Label in ROC Curve:")
+    print(labelList)
+
+    # Compute ROC curve and ROC area for each class
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+    n_classes = len(np.unique(y_true_encoded))
+    print(str("--->" + str(n_classes)))
+    for i in range(n_classes):
+        y_true_binary = np.array([1 if label == i else 0 for label in y_true_encoded])
+        y_pred_binary = np.array([1 if label == i else 0 for label in y_pred_encoded])
+        fpr[i], tpr[i], _ = roc_curve(y_true_binary, y_pred_binary)
+        roc_auc[i] = auc(fpr[i], tpr[i])
+
+    # Plot ROC curve for each class
+    plt.figure(figsize=(10, 8))
+    lw = 2
+    colors = ['aqua', 'darkorange', 'cornflowerblue', 'brown', 'chartreuse', 'coral']
+    for i, color in zip(range(n_classes), colors):
+
+        plt.plot(fpr[i], tpr[i], color=color, lw=lw,
+                 label='ROC curve of class {0} (area = {1:0.2f})'
+                 ''.format(labelList[i], roc_auc[i]))
+
+    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC Curve for Multi-class Classification')
+    plt.legend(loc="lower right")
+    #plt.show()
+
+    # Save the plotted graph
+    plt.savefig(outPath + model_name + '_roc_curve' + evaType + '.png')
+
+EMOTION_LABEL_NEUTRAL_CODE = "0"
+EMOTION_LABEL_HAPPY_CODE = "1"
+EMOTION_LABEL_FEAR_CODE = "2"
+EMOTION_LABEL_SURPRISE_CODE = "3"
+EMOTION_LABEL_ANGRY_CODE = "4"
+EMOTION_LABEL_SAD_CODE = "5"
+
+LabelList = [EMOTION_LABEL_NEUTRAL_CODE, EMOTION_LABEL_HAPPY_CODE, EMOTION_LABEL_FEAR_CODE, EMOTION_LABEL_SURPRISE_CODE, EMOTION_LABEL_ANGRY_CODE, EMOTION_LABEL_SAD_CODE]
+
+def calculate_Cohen_Kappa_Score(raters):
+    """
+    Calculate the Cohen Kappa Score
+    :param raters: The list of the labels representing the raters
+    :return:
+    """
+    data = np.zeros((len(raters), len(raters)))
+    # Calculate cohen_kappa_score for every combination of raters
+    # Combinations are only calculated j -> k, but not k -> j, which are equal
+    # So not all places in the matrix are filled.
+    for j, k in list(itertools.combinations(range(len(raters)), r=2)):
+        data[j, k] = cohen_kappa_score(raters[j], raters[k])
+
+    print(data)
+    return data
+
+def plotHeatMapKappaScore(data, raters, labelList, datasetType):
+    outPath = "./outputAggrement/"
+    sns.heatmap(
+        data,
+        mask=np.tri(len(raters)),
+        annot=True, linewidths=5,
+        vmin=0, vmax=1,
+        xticklabels=labelList,
+        yticklabels=labelList,
+    )
+    #plt.show()
+    plt.savefig(outPath + 'KappaAgreement_' + datasetType + '.png')
+    plt.clf()
