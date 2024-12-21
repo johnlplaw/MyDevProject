@@ -20,3 +20,4 @@ setuptools
 imbalanced-learn
 pandas
 seaborn
+bert-score

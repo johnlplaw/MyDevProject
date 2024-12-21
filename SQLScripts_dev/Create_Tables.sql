@@ -112,6 +112,138 @@ create table model_training (
 
 --------------------------------------
 
+create table similarity_st (
 
+    id int,
 
+    translate_chn DECIMAL(10,5),
+    translate_my DECIMAL(10,5),
+    translate_tm DECIMAL(10,5),
 
+    cm_en_chn DECIMAL(10,5),
+    cm_en_my DECIMAL(10,5),
+    cm_en_tm DECIMAL(10,5),
+
+    cm_chn_en DECIMAL(10,5),
+    cm_chn_my DECIMAL(10,5),
+    cm_chn_tm DECIMAL(10,5),
+
+    cm_my_en DECIMAL(10,5),
+    cm_my_chn DECIMAL(10,5),
+    cm_my_tm DECIMAL(10,5),
+
+    cm_tm_en DECIMAL(10,5),
+    cm_tm_chn DECIMAL(10,5),
+    cm_tm_my DECIMAL(10,5),
+
+    cw_en_chn DECIMAL(10,5),
+    cw_en_my DECIMAL(10,5),
+    cw_en_tm DECIMAL(10,5),
+
+    cw_chn_en DECIMAL(10,5),
+    cw_chn_my DECIMAL(10,5),
+    cw_chn_tm DECIMAL(10,5),
+
+    cw_my_en DECIMAL(10,5),
+    cw_my_chn DECIMAL(10,5),
+    cw_my_tm DECIMAL(10,5),
+
+    cw_tm_en DECIMAL(10,5),
+    cw_tm_chn DECIMAL(10,5),
+    cw_tm_my DECIMAL(10,5)
+);
+
+create table similarity_bs (
+
+    id int,
+
+    translate_chn_prec DECIMAL(10,5),
+    translate_chn_rec DECIMAL(10,5),
+    translate_chn_f1 DECIMAL(10,5),
+    translate_my_prec DECIMAL(10,5),
+    translate_my_rec DECIMAL(10,5),
+    translate_my_f1 DECIMAL(10,5),
+    translate_tm_prec DECIMAL(10,5),
+    translate_tm_rec DECIMAL(10,5),
+    translate_tm_f1 DECIMAL(10,5),
+
+    cm_en_chn_prec DECIMAL(10,5),
+    cm_en_chn_rec DECIMAL(10,5),
+    cm_en_chn_f1 DECIMAL(10,5),
+    cm_en_my_prec DECIMAL(10,5),
+    cm_en_my_rec DECIMAL(10,5),
+    cm_en_my_f1 DECIMAL(10,5),
+    cm_en_tm_prec DECIMAL(10,5),
+    cm_en_tm_rec DECIMAL(10,5),
+    cm_en_tm_f1 DECIMAL(10,5),
+
+    cm_chn_en_prec DECIMAL(10,5),
+    cm_chn_en_rec DECIMAL(10,5),
+    cm_chn_en_f1 DECIMAL(10,5),
+    cm_chn_my_prec DECIMAL(10,5),
+    cm_chn_my_rec DECIMAL(10,5),
+    cm_chn_my_f1 DECIMAL(10,5),
+    cm_chn_tm_prec DECIMAL(10,5),
+    cm_chn_tm_rec DECIMAL(10,5),
+    cm_chn_tm_f1 DECIMAL(10,5),
+
+    cm_my_en_prec DECIMAL(10,5),
+    cm_my_en_rec DECIMAL(10,5),
+    cm_my_en_f1 DECIMAL(10,5),
+    cm_my_chn_prec DECIMAL(10,5),
+    cm_my_chn_rec DECIMAL(10,5),
+    cm_my_chn_f1 DECIMAL(10,5),
+    cm_my_tm_prec DECIMAL(10,5),
+    cm_my_tm_rec DECIMAL(10,5),
+    cm_my_tm_f1 DECIMAL(10,5),
+
+    cm_tm_en_prec DECIMAL(10,5),
+    cm_tm_en_rec DECIMAL(10,5),
+    cm_tm_en_f1 DECIMAL(10,5),
+    cm_tm_chn_prec DECIMAL(10,5),
+    cm_tm_chn_rec DECIMAL(10,5),
+    cm_tm_chn_f1 DECIMAL(10,5),
+    cm_tm_my_prec DECIMAL(10,5),
+    cm_tm_my_rec DECIMAL(10,5),
+    cm_tm_my_f1 DECIMAL(10,5),
+
+    cw_en_chn_prec DECIMAL(10,5),
+    cw_en_chn_rec DECIMAL(10,5),
+    cw_en_chn_f1 DECIMAL(10,5),
+    cw_en_my_prec DECIMAL(10,5),
+    cw_en_my_rec DECIMAL(10,5),
+    cw_en_my_f1 DECIMAL(10,5),
+    cw_en_tm_prec DECIMAL(10,5),
+    cw_en_tm_rec DECIMAL(10,5),
+    cw_en_tm_f1 DECIMAL(10,5),
+
+    cw_chn_en_prec DECIMAL(10,5),
+    cw_chn_en_rec DECIMAL(10,5),
+    cw_chn_en_f1 DECIMAL(10,5),
+    cw_chn_my_prec DECIMAL(10,5),
+    cw_chn_my_rec DECIMAL(10,5),
+    cw_chn_my_f1 DECIMAL(10,5),
+    cw_chn_tm_prec DECIMAL(10,5),
+    cw_chn_tm_rec DECIMAL(10,5),
+    cw_chn_tm_f1 DECIMAL(10,5),
+
+    cw_my_en_prec DECIMAL(10,5),
+    cw_my_en_rec DECIMAL(10,5),
+    cw_my_en_f1 DECIMAL(10,5),
+    cw_my_chn_prec DECIMAL(10,5),
+    cw_my_chn_rec DECIMAL(10,5),
+    cw_my_chn_f1 DECIMAL(10,5),
+    cw_my_tm_prec DECIMAL(10,5),
+    cw_my_tm_rec DECIMAL(10,5),
+    cw_my_tm_f1 DECIMAL(10,5),
+
+    cw_tm_en_prec DECIMAL(10,5),
+    cw_tm_en_rec DECIMAL(10,5),
+    cw_tm_en_f1 DECIMAL(10,5),
+    cw_tm_chn_prec DECIMAL(10,5),
+    cw_tm_chn_rec DECIMAL(10,5),
+    cw_tm_chn_f1 DECIMAL(10,5),
+    cw_tm_my_prec DECIMAL(10,5),
+    cw_tm_my_rec DECIMAL(10,5),
+    cw_tm_my_f1 DECIMAL(10,5)
+);
