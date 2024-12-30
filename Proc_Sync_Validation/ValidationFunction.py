@@ -48,7 +48,7 @@ def get_Syn_Dataset(targetTable, recordline):
         from mydataset 
     """
 
-    Sub_Query = " where id not in (select id from " + targetTable + ") " + recordline + ";"
+    Sub_Query = " where length(cleanedtxt) > 0 and id not in (select id from " + targetTable + ") " + recordline + ";"
     Query_Str = Main_Query + Sub_Query
 
     # Get the oritxt from mysql
