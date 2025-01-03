@@ -74,7 +74,7 @@ def execute():
 
     conn = sqlHelper.get_mysql_conn()
     mycursor = conn.cursor()
-    sql = "UPDATE mydataset set  wtranslate_chn = lower(%s), translate_my = lower(%s), translate_tm = lower(%s)here id = %s"
+    sql = "UPDATE mydataset set translate_chn = lower(%s), translate_my = lower(%s), translate_tm = lower(%s)here id = %s"
 
     for txtdata in oritxt_list:
         val = (txtdata.translate_chn, txtdata.translate_my, txtdata.translate_tm, txtdata.id)
