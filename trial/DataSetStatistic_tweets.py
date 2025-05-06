@@ -7,7 +7,6 @@ conn = sqlHelper.get_mysql_conn()
 mycursor = conn.cursor()
 
 print("Query data... start")
-# sql = "Select length(oritxt), length(cleanedtxt) from mydataset where cleanedtxt is not null and length(cleanedtxt) > 0"
 sql = "Select length(tweet), length(clean_text) from tweets where clean_text is not null and length(clean_text) > 0;"
 
 mycursor.execute(sql)

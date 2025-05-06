@@ -59,7 +59,7 @@ sql_stmt = """
             WHEN pseudo_label = 'Sad' THEN 5
             ELSE '-1'
         END AS pseudo_label  
-    from mydataset where std_label = pseudo_label
+    from Synth_text where std_label = pseudo_label
 """
 
 class SrcData:

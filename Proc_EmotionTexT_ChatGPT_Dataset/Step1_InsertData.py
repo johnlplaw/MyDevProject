@@ -83,7 +83,7 @@ def read_the_file_content(the_chatGpt_file_path, file_list):
 def insert_data(theContentList):
     conn = sqlHelper.get_mysql_conn()
     mycursor = conn.cursor()
-    sql = "INSERT INTO emotion_text (ori_text, text_type, lang, label) VALUES (%s, %s, %s, %s)"
+    sql = "INSERT INTO ChatGPT_text (ori_text, text_type, lang, label) VALUES (%s, %s, %s, %s)"
 
     for content in theContentList:
         val = (content.oriTxt, content.txtType, content.lang, content.label)

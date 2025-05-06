@@ -7,8 +7,8 @@ conn = sqlHelper.get_mysql_conn()
 mycursor = conn.cursor()
 
 print("Query data... start")
-# sql = "Select length(oritxt), length(cleanedtxt) from mydataset where cleanedtxt is not null and length(cleanedtxt) > 0"
-# sql = "Select length(oritxt), length(cleanedtxt) from mydataset"
+sql = "Select length(oritxt), length(cleanedtxt) from Synth_text where cleanedtxt is not null and length(cleanedtxt) > 0"
+# sql = "Select length(oritxt), length(cleanedtxt) from Synth_text"
 
 mycursor.execute(sql)
 myresult = mycursor.fetchall()

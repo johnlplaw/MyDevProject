@@ -4,7 +4,7 @@ conn = sqlHelper.get_mysql_conn()
 
 mycursor = conn.cursor()
 
-sql = "INSERT INTO mydataset (label, oritxt, cleannedtxt) VALUES (%s, %s, %s)"
+sql = "INSERT INTO Synth_text (label, oritxt, cleannedtxt) VALUES (%s, %s, %s)"
 val = ("John", "Highway 21")
 mycursor.execute(sql, val)
 

@@ -21,7 +21,7 @@ def Get_ChatGPT_Data():
     try:
         conn = sqlHelper.get_mysql_conn()
         mycursor = conn.cursor()
-        sql = ("select id, ori_text, label, pseudo_label from emotion_text order by id")
+        sql = ("select id, ori_text, label, pseudo_label from ChatGPT_text order by id")
         mycursor.execute(sql)
         result = mycursor.fetchall()
 

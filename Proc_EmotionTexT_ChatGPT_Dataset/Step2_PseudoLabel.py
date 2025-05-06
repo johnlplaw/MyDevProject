@@ -17,7 +17,7 @@ def Get_Unlabeled_Text():
     try:
         conn = sqlHelper.get_mysql_conn()
         mycursor = conn.cursor()
-        sql = ("select id, ori_text from emotion_text where In_English is null LIMIT 50")
+        sql = ("select id, ori_text from ChatGPT_text where In_English is null LIMIT 50")
         mycursor.execute(sql)
         result = mycursor.fetchall()
 
@@ -57,7 +57,7 @@ def Update_GPTText_pseudolabel(processedList):
     conn = sqlHelper.get_mysql_conn()
     mycursor = conn.cursor()
     try:
-        sql = ("update emotion_text set In_English = %s, pseudo_label = %s where id = %s")
+        sql = ("update ChatGPT_text set In_English = %s, pseudo_label = %s where id = %s")
 
         for txt in processedList:
             val = (txt.inEnglish, txt.pseudoLabel, txt.id)
