@@ -27,7 +27,7 @@ def Get_DataFrame(df_type, size):
 def insert_data(theContentList):
     conn = sqlHelper.get_mysql_conn()
     mycursor = conn.cursor()
-    sql = "INSERT INTO synthetic_text (lang_type, ori_text, mul_text, lang_col, label, plabel) VALUES (%s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO Resample_synth_text (lang_type, ori_text, mul_text, lang_col, label, plabel) VALUES (%s, %s, %s, %s, %s, %s)"
 
     for content in theContentList:
         val = (content.lang_type, content.ori_text, content.mul_text, content.lang_col, content.label, content.plabel)

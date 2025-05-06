@@ -18,7 +18,7 @@ def select_data_from_synthetic_dataset(langType, size):
     try:
         conn = sqlHelper.get_mysql_conn()
         mycursor = conn.cursor()
-        sql = ("select id, lang_type, ori_text, mul_text, lang_col, label, plabel from synthetic_text where lang_type = '" + langType + str(size) + "'")
+        sql = ("select id, lang_type, ori_text, mul_text, lang_col, label, plabel from Resample_synth_text where lang_type = '" + langType + str(size) + "'")
         mycursor.execute(sql)
         result = mycursor.fetchall()
 
