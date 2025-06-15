@@ -100,6 +100,26 @@ Part 6: Validation (Folder: Proc_Analysis_phrase2)
 - Step3_Proc_Performance_EvaText.py
 - Step3_Proc_Performance_TweetText.py
 
-* Per4form checking agreement
+* Perform checking agreement
 - Step4_Proc_Agreement_EvaText.py
 - Step4_Proc_Agreement_EvaTweets.py
+
+
+For Dataset structure:
+Database to use: MySQL8.2.1
+
+Database create tables script
+.\SQLScript_Create\Create_script.sql
+
+Database connection:
+Modify the script ./commons/mysql/mysqlHelper.py
+Change the info below:
+
+def get_mysql_conn():
+    mydb = mysql.connector.connect(
+        host="<Your database host>",
+        user="<Your user name>",
+        password="<Your password>",
+        database="<Your schema name>"
+    )
+    return mydb
