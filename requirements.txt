@@ -12,7 +12,7 @@ scikit-learn
 text2emotion
 matplotlib
 torch
-transformers
+transformers==4.38.1
 sentence_transformers
 SentencePiece
 torchviz
