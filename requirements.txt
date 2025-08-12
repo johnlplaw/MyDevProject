@@ -21,3 +21,4 @@ imbalanced-learn
 pandas
 seaborn
 bert-score
+POT
