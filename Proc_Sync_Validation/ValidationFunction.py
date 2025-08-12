@@ -131,3 +131,22 @@ def insertUpdateSimilarityType2(tableName, id, fieldName, P, R, F1):
             mycursor.close()
             conn.close()
             #print("MySQL connection is closed")
+
+def insertUpdateSimilarityType1(tableName, id, fieldNameList, valueList):
+
+
+
+    sql_msg = "INSERT INTO " + tableName + " (id, " + ','.join(fieldNameList) + ") VALUES(" + str(id) + ", " + ','.join(valueList) + ") "
+    try:
+        conn = sqlHelper.get_mysql_conn()
+        #print("MySQL connection is opened")
+        mycursor = conn.cursor()
+        mycursor.execute(sql_msg)
+        conn.commit()
+    except mysql.connector.Error as error:
+        print("Failed to insert record to database: {}".format(error))
+    finally:
+        if conn.is_connected():
+            mycursor.close()
+            conn.close()
+            #print("MySQL connection is closed")
