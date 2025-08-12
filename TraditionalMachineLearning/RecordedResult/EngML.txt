@@ -1,0 +1,895 @@
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/bin/python /Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/TraditionalMachineLearning/Classification_Eng.py
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.32      0.40      0.36        80
+           1       0.76      0.62      0.69        88
+           2       0.32      0.34      0.33        80
+           3       0.37      0.52      0.43        75
+           4       0.64      0.35      0.45        77
+           5       0.58      0.56      0.57        80
+
+    accuracy                           0.47       480
+   macro avg       0.50      0.47      0.47       480
+weighted avg       0.51      0.47      0.48       480
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.29      0.30      0.29        80
+           1       0.74      0.67      0.70        88
+           2       0.33      0.35      0.34        80
+           3       0.38      0.48      0.43        75
+           4       0.52      0.36      0.43        77
+           5       0.53      0.55      0.54        80
+
+    accuracy                           0.46       480
+   macro avg       0.46      0.45      0.45       480
+weighted avg       0.47      0.46      0.46       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.34      0.28      0.30        80
+           1       0.68      0.56      0.61        88
+           2       0.33      0.40      0.36        80
+           3       0.34      0.52      0.41        75
+           4       0.60      0.36      0.45        77
+           5       0.50      0.54      0.52        80
+
+    accuracy                           0.44       480
+   macro avg       0.47      0.44      0.44       480
+weighted avg       0.47      0.44      0.45       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.32      0.61      0.42        80
+           1       0.65      0.73      0.68        88
+           2       0.27      0.17      0.21        80
+           3       0.43      0.33      0.38        75
+           4       0.67      0.34      0.45        77
+           5       0.53      0.54      0.53        80
+
+    accuracy                           0.46       480
+   macro avg       0.48      0.45      0.45       480
+weighted avg       0.48      0.46      0.45       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.16      0.93      0.28        80
+           1       0.85      0.12      0.22        88
+           2       0.00      0.00      0.00        80
+           3       0.00      0.00      0.00        75
+           4       0.50      0.06      0.11        77
+           5       0.67      0.03      0.05        80
+
+    accuracy                           0.19       480
+   macro avg       0.36      0.19      0.11       480
+weighted avg       0.37      0.19      0.11       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 400, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.28      0.34      0.31        80
+           1       0.62      0.65      0.63        88
+           2       0.20      0.21      0.20        80
+           3       0.37      0.31      0.34        75
+           4       0.47      0.39      0.43        77
+           5       0.47      0.46      0.47        80
+
+    accuracy                           0.40       480
+   macro avg       0.40      0.39      0.40       480
+weighted avg       0.40      0.40      0.40       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.40      0.56      0.47        80
+           1       0.63      0.47      0.54        88
+           2       0.49      0.45      0.47        80
+           3       0.48      0.52      0.50        75
+           4       0.59      0.57      0.58        77
+           5       0.52      0.47      0.50        80
+
+    accuracy                           0.51       480
+   macro avg       0.52      0.51      0.51       480
+weighted avg       0.52      0.51      0.51       480
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.46      0.57      0.51        80
+           1       0.71      0.58      0.64        88
+           2       0.54      0.47      0.50        80
+           3       0.54      0.65      0.59        75
+           4       0.68      0.65      0.66        77
+           5       0.57      0.51      0.54        80
+
+    accuracy                           0.57       480
+   macro avg       0.58      0.57      0.57       480
+weighted avg       0.58      0.57      0.57       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.40      0.33      0.36        80
+           1       0.66      0.44      0.53        88
+           2       0.43      0.45      0.44        80
+           3       0.43      0.57      0.49        75
+           4       0.51      0.61      0.56        77
+           5       0.50      0.50      0.50        80
+
+    accuracy                           0.48       480
+   macro avg       0.49      0.48      0.48       480
+weighted avg       0.49      0.48      0.48       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.31      0.72      0.44        80
+           1       0.67      0.41      0.51        88
+           2       0.35      0.35      0.35        80
+           3       0.44      0.35      0.39        75
+           4       0.62      0.45      0.53        77
+           5       0.50      0.29      0.37        80
+
+    accuracy                           0.43       480
+   macro avg       0.48      0.43      0.43       480
+weighted avg       0.49      0.43      0.43       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.17      1.00      0.29        80
+           1       1.00      0.01      0.02        88
+           2       0.00      0.00      0.00        80
+           3       0.00      0.00      0.00        75
+           4       1.00      0.03      0.05        77
+           5       1.00      0.11      0.20        80
+
+    accuracy                           0.19       480
+   macro avg       0.53      0.19      0.09       480
+weighted avg       0.54      0.19      0.09       480
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 400, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.33      0.51      0.40        80
+           1       0.48      0.32      0.38        88
+           2       0.17      0.19      0.18        80
+           3       0.32      0.28      0.30        75
+           4       0.46      0.40      0.43        77
+           5       0.28      0.28      0.28        80
+
+    accuracy                           0.33       480
+   macro avg       0.34      0.33      0.33       480
+weighted avg       0.34      0.33      0.33       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.59      0.80      0.68        80
+           1       0.86      0.72      0.78        88
+           2       0.65      0.56      0.60        80
+           3       0.67      0.72      0.69        75
+           4       0.80      0.79      0.80        77
+           5       0.78      0.70      0.74        80
+
+    accuracy                           0.71       480
+   macro avg       0.72      0.72      0.72       480
+weighted avg       0.73      0.71      0.72       480
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.60      0.79      0.68        80
+           1       0.87      0.83      0.85        88
+           2       0.66      0.59      0.62        80
+           3       0.75      0.72      0.73        75
+           4       0.81      0.81      0.81        77
+           5       0.85      0.75      0.79        80
+
+    accuracy                           0.75       480
+   macro avg       0.76      0.75      0.75       480
+weighted avg       0.76      0.75      0.75       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.68      0.49      0.57        80
+           1       0.86      0.75      0.80        88
+           2       0.61      0.61      0.61        80
+           3       0.55      0.75      0.64        75
+           4       0.76      0.81      0.78        77
+           5       0.75      0.78      0.76        80
+
+    accuracy                           0.70       480
+   macro avg       0.70      0.70      0.69       480
+weighted avg       0.71      0.70      0.69       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.54      0.89      0.67        80
+           1       0.65      0.78      0.71        88
+           2       0.61      0.49      0.54        80
+           3       0.76      0.63      0.69        75
+           4       0.95      0.68      0.79        77
+           5       0.73      0.56      0.63        80
+
+    accuracy                           0.67       480
+   macro avg       0.71      0.67      0.67       480
+weighted avg       0.70      0.67      0.67       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.17      1.00      0.29        80
+           1       1.00      0.03      0.07        88
+           2       1.00      0.01      0.02        80
+           3       0.00      0.00      0.00        75
+           4       1.00      0.05      0.10        77
+           5       1.00      0.07      0.14        80
+
+    accuracy                           0.20       480
+   macro avg       0.70      0.20      0.10       480
+weighted avg       0.71      0.20      0.10       480
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1497: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 400, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.61      0.74      0.67        80
+           1       0.66      0.58      0.62        88
+           2       0.45      0.46      0.46        80
+           3       0.57      0.59      0.58        75
+           4       0.72      0.66      0.69        77
+           5       0.61      0.57      0.59        80
+
+    accuracy                           0.60       480
+   macro avg       0.60      0.60      0.60       480
+weighted avg       0.60      0.60      0.60       480
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.42      0.56      0.48       329
+           1       0.79      0.78      0.79       324
+           2       0.38      0.38      0.38       326
+           3       0.47      0.49      0.48       307
+           4       0.68      0.53      0.60       317
+           5       0.65      0.55      0.59       317
+
+    accuracy                           0.55      1920
+   macro avg       0.57      0.55      0.55      1920
+weighted avg       0.57      0.55      0.55      1920
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.42      0.47      0.44       329
+           1       0.78      0.79      0.79       324
+           2       0.41      0.41      0.41       326
+           3       0.44      0.48      0.45       307
+           4       0.65      0.58      0.61       317
+           5       0.67      0.58      0.62       317
+
+    accuracy                           0.55      1920
+   macro avg       0.56      0.55      0.56      1920
+weighted avg       0.56      0.55      0.56      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.44      0.48      0.46       329
+           1       0.70      0.75      0.72       324
+           2       0.40      0.38      0.39       326
+           3       0.41      0.48      0.44       307
+           4       0.69      0.54      0.61       317
+           5       0.60      0.56      0.58       317
+
+    accuracy                           0.53      1920
+   macro avg       0.54      0.53      0.53      1920
+weighted avg       0.54      0.53      0.53      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.35      0.58      0.44       329
+           1       0.67      0.80      0.73       324
+           2       0.39      0.31      0.35       326
+           3       0.50      0.45      0.47       307
+           4       0.69      0.44      0.53       317
+           5       0.62      0.49      0.55       317
+
+    accuracy                           0.51      1920
+   macro avg       0.54      0.51      0.51      1920
+weighted avg       0.53      0.51      0.51      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.18      0.90      0.30       329
+           1       0.78      0.14      0.24       324
+           2       0.21      0.02      0.04       326
+           3       0.32      0.02      0.04       307
+           4       0.53      0.19      0.28       317
+           5       0.60      0.09      0.15       317
+
+    accuracy                           0.23      1920
+   macro avg       0.44      0.23      0.18      1920
+weighted avg       0.44      0.23      0.18      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 1600, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.36      0.44      0.40       329
+           1       0.64      0.67      0.65       324
+           2       0.34      0.33      0.33       326
+           3       0.45      0.46      0.46       307
+           4       0.56      0.46      0.51       317
+           5       0.50      0.44      0.47       317
+
+    accuracy                           0.47      1920
+   macro avg       0.47      0.47      0.47      1920
+weighted avg       0.47      0.47      0.47      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.57      0.71      0.64       329
+           1       0.75      0.68      0.71       324
+           2       0.54      0.60      0.57       326
+           3       0.67      0.59      0.63       307
+           4       0.77      0.69      0.73       317
+           5       0.66      0.62      0.64       317
+
+    accuracy                           0.65      1920
+   macro avg       0.66      0.65      0.65      1920
+weighted avg       0.66      0.65      0.65      1920
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.61      0.74      0.67       329
+           1       0.77      0.75      0.76       324
+           2       0.61      0.62      0.61       326
+           3       0.74      0.67      0.70       307
+           4       0.79      0.74      0.76       317
+           5       0.66      0.62      0.64       317
+
+    accuracy                           0.69      1920
+   macro avg       0.70      0.69      0.69      1920
+weighted avg       0.69      0.69      0.69      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.52      0.50      0.51       329
+           1       0.64      0.63      0.64       324
+           2       0.54      0.60      0.57       326
+           3       0.52      0.55      0.54       307
+           4       0.66      0.64      0.65       317
+           5       0.61      0.56      0.58       317
+
+    accuracy                           0.58      1920
+   macro avg       0.58      0.58      0.58      1920
+weighted avg       0.58      0.58      0.58      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.51      0.73      0.60       329
+           1       0.70      0.61      0.65       324
+           2       0.40      0.46      0.43       326
+           3       0.61      0.49      0.55       307
+           4       0.72      0.64      0.68       317
+           5       0.53      0.45      0.49       317
+
+    accuracy                           0.57      1920
+   macro avg       0.58      0.56      0.57      1920
+weighted avg       0.58      0.57      0.57      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.17      0.95      0.29       329
+           1       0.65      0.06      0.11       324
+           2       0.67      0.03      0.06       326
+           3       0.42      0.02      0.03       307
+           4       0.89      0.05      0.10       317
+           5       0.74      0.08      0.14       317
+
+    accuracy                           0.20      1920
+   macro avg       0.59      0.20      0.12      1920
+weighted avg       0.59      0.20      0.12      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 1600, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.48      0.60      0.53       329
+           1       0.53      0.47      0.50       324
+           2       0.33      0.34      0.34       326
+           3       0.40      0.38      0.39       307
+           4       0.58      0.52      0.55       317
+           5       0.37      0.37      0.37       317
+
+    accuracy                           0.45      1920
+   macro avg       0.45      0.45      0.45      1920
+weighted avg       0.45      0.45      0.45      1920
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.71      0.86      0.78       347
+           1       0.88      0.90      0.89       310
+           2       0.68      0.78      0.73       295
+           3       0.97      0.57      0.72       162
+           4       0.92      0.79      0.85       334
+           5       0.87      0.83      0.85       314
+
+    accuracy                           0.81      1762
+   macro avg       0.84      0.79      0.80      1762
+weighted avg       0.83      0.81      0.81      1762
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.78      0.87      0.82       347
+           1       0.93      0.93      0.93       310
+           2       0.76      0.76      0.76       295
+           3       0.89      0.75      0.82       162
+           4       0.92      0.89      0.90       334
+           5       0.88      0.87      0.88       314
+
+    accuracy                           0.85      1762
+   macro avg       0.86      0.85      0.85      1762
+weighted avg       0.86      0.85      0.86      1762
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.72      0.60      0.65       347
+           1       0.78      0.90      0.83       310
+           2       0.57      0.79      0.66       295
+           3       0.98      0.26      0.41       162
+           4       0.83      0.84      0.84       334
+           5       0.78      0.82      0.80       314
+
+    accuracy                           0.74      1762
+   macro avg       0.78      0.70      0.70      1762
+weighted avg       0.76      0.74      0.73      1762
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.66      0.87      0.75       347
+           1       0.73      0.80      0.76       310
+           2       0.58      0.65      0.61       295
+           3       0.92      0.52      0.67       162
+           4       0.94      0.70      0.80       334
+           5       0.78      0.73      0.75       314
+
+    accuracy                           0.73      1762
+   macro avg       0.77      0.71      0.73      1762
+weighted avg       0.76      0.73      0.73      1762
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.21      0.98      0.34       347
+           1       0.80      0.06      0.12       310
+           2       0.73      0.03      0.05       295
+           3       1.00      0.01      0.02       162
+           4       0.88      0.11      0.19       334
+           5       0.93      0.13      0.23       314
+
+    accuracy                           0.25      1762
+   macro avg       0.76      0.22      0.16      1762
+weighted avg       0.73      0.25      0.18      1762
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 1600, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.61      0.68      0.64       347
+           1       0.69      0.75      0.72       310
+           2       0.53      0.56      0.55       295
+           3       0.65      0.56      0.60       162
+           4       0.81      0.70      0.75       334
+           5       0.69      0.64      0.66       314
+
+    accuracy                           0.66      1762
+   macro avg       0.66      0.65      0.65      1762
+weighted avg       0.66      0.66      0.66      1762
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.42      0.59      0.49       544
+           1       0.83      0.82      0.82       577
+           2       0.47      0.43      0.45       580
+           3       0.53      0.50      0.51       589
+           4       0.68      0.55      0.61       534
+           5       0.68      0.63      0.66       536
+
+    accuracy                           0.59      3360
+   macro avg       0.60      0.59      0.59      3360
+weighted avg       0.60      0.59      0.59      3360
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.41      0.49      0.45       544
+           1       0.86      0.84      0.85       577
+           2       0.48      0.43      0.46       580
+           3       0.50      0.51      0.51       589
+           4       0.63      0.59      0.61       534
+           5       0.68      0.67      0.67       536
+
+    accuracy                           0.59      3360
+   macro avg       0.59      0.59      0.59      3360
+weighted avg       0.59      0.59      0.59      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.40      0.52      0.46       544
+           1       0.78      0.76      0.77       577
+           2       0.46      0.40      0.43       580
+           3       0.50      0.46      0.48       589
+           4       0.62      0.57      0.59       534
+           5       0.64      0.65      0.64       536
+
+    accuracy                           0.56      3360
+   macro avg       0.57      0.56      0.56      3360
+weighted avg       0.56      0.56      0.56      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.36      0.59      0.45       544
+           1       0.68      0.81      0.74       577
+           2       0.39      0.33      0.36       580
+           3       0.54      0.43      0.48       589
+           4       0.73      0.49      0.58       534
+           5       0.65      0.55      0.60       536
+
+    accuracy                           0.53      3360
+   macro avg       0.56      0.53      0.54      3360
+weighted avg       0.56      0.53      0.53      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.17      0.89      0.29       544
+           1       0.48      0.22      0.31       577
+           2       0.34      0.03      0.05       580
+           3       0.40      0.02      0.04       589
+           4       0.58      0.16      0.25       534
+           5       0.62      0.10      0.18       536
+
+    accuracy                           0.23      3360
+   macro avg       0.43      0.24      0.19      3360
+weighted avg       0.43      0.23      0.19      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 2800, label Type: lbl
+              precision    recall  f1-score   support
+
+           0       0.34      0.42      0.38       544
+           1       0.72      0.74      0.73       577
+           2       0.36      0.35      0.36       580
+           3       0.43      0.41      0.42       589
+           4       0.59      0.54      0.56       534
+           5       0.59      0.53      0.56       536
+
+    accuracy                           0.50      3360
+   macro avg       0.51      0.50      0.50      3360
+weighted avg       0.51      0.50      0.50      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.60      0.81      0.69       544
+           1       0.81      0.76      0.78       577
+           2       0.68      0.66      0.67       580
+           3       0.77      0.69      0.73       589
+           4       0.82      0.72      0.77       534
+           5       0.70      0.68      0.69       536
+
+    accuracy                           0.72      3360
+   macro avg       0.73      0.72      0.72      3360
+weighted avg       0.73      0.72      0.72      3360
+
++++++++++++++++++++++++++++++
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.65      0.81      0.72       544
+           1       0.84      0.81      0.82       577
+           2       0.73      0.69      0.71       580
+           3       0.80      0.72      0.76       589
+           4       0.82      0.78      0.80       534
+           5       0.72      0.72      0.72       536
+
+    accuracy                           0.75      3360
+   macro avg       0.76      0.76      0.76      3360
+weighted avg       0.76      0.75      0.76      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.51      0.60      0.55       544
+           1       0.74      0.71      0.72       577
+           2       0.63      0.63      0.63       580
+           3       0.68      0.57      0.62       589
+           4       0.65      0.67      0.66       534
+           5       0.62      0.64      0.63       536
+
+    accuracy                           0.63      3360
+   macro avg       0.64      0.64      0.64      3360
+weighted avg       0.64      0.63      0.64      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.51      0.80      0.62       544
+           1       0.72      0.65      0.68       577
+           2       0.48      0.50      0.49       580
+           3       0.70      0.57      0.63       589
+           4       0.83      0.65      0.72       534
+           5       0.55      0.51      0.52       536
+
+    accuracy                           0.61      3360
+   macro avg       0.63      0.61      0.61      3360
+weighted avg       0.63      0.61      0.61      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.16      0.93      0.28       544
+           1       0.75      0.08      0.14       577
+           2       0.60      0.04      0.08       580
+           3       0.64      0.05      0.09       589
+           4       0.71      0.09      0.16       534
+           5       0.79      0.11      0.19       536
+
+    accuracy                           0.21      3360
+   macro avg       0.61      0.22      0.16      3360
+weighted avg       0.61      0.21      0.16      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 2800, label Type: plbl
+              precision    recall  f1-score   support
+
+           0       0.48      0.60      0.53       544
+           1       0.55      0.49      0.52       577
+           2       0.31      0.33      0.32       580
+           3       0.46      0.40      0.43       589
+           4       0.60      0.54      0.56       534
+           5       0.37      0.39      0.38       536
+
+    accuracy                           0.45      3360
+   macro avg       0.46      0.46      0.46      3360
+weighted avg       0.46      0.45      0.46      3360
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LogisticRegression(max_iter=1000), Size: 2800, label Type: slbl
+/Users/johnlaw/Dev/UM-myproj/PythonProject/MyDevProject/env/lib/python3.12/site-packages/sklearn/svm/_classes.py:31: FutureWarning: The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+  warnings.warn(
+              precision    recall  f1-score   support
+
+           0       0.73      0.92      0.81       570
+           1       0.90      0.91      0.90       549
+           2       0.79      0.78      0.78       521
+           3       0.98      0.45      0.61       177
+           4       0.94      0.85      0.89       558
+           5       0.85      0.86      0.86       547
+
+    accuracy                           0.84      2922
+   macro avg       0.86      0.79      0.81      2922
+weighted avg       0.85      0.84      0.84      2922
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: LinearSVC(), Size: 2800, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.80      0.92      0.86       570
+           1       0.95      0.94      0.95       549
+           2       0.84      0.84      0.84       521
+           3       0.89      0.70      0.78       177
+           4       0.95      0.88      0.91       558
+           5       0.89      0.88      0.89       547
+
+    accuracy                           0.88      2922
+   macro avg       0.89      0.86      0.87      2922
+weighted avg       0.89      0.88      0.88      2922
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: MultinomialNB(), Size: 2800, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.70      0.73      0.72       570
+           1       0.82      0.89      0.85       549
+           2       0.72      0.74      0.73       521
+           3       1.00      0.07      0.13       177
+           4       0.85      0.85      0.85       558
+           5       0.76      0.87      0.81       547
+
+    accuracy                           0.77      2922
+   macro avg       0.81      0.69      0.68      2922
+weighted avg       0.78      0.77      0.75      2922
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: RandomForestClassifier(), Size: 2800, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.70      0.90      0.79       570
+           1       0.76      0.89      0.82       549
+           2       0.68      0.66      0.67       521
+           3       0.96      0.37      0.54       177
+           4       0.93      0.80      0.86       558
+           5       0.81      0.73      0.77       547
+
+    accuracy                           0.77      2922
+   macro avg       0.81      0.73      0.74      2922
+weighted avg       0.79      0.77      0.77      2922
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: KNeighborsClassifier(n_neighbors=3), Size: 2800, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.21      0.98      0.35       570
+           1       0.87      0.11      0.19       549
+           2       0.74      0.04      0.08       521
+           3       1.00      0.05      0.10       177
+           4       0.94      0.18      0.30       558
+           5       0.91      0.16      0.28       547
+
+    accuracy                           0.29      2922
+   macro avg       0.78      0.25      0.22      2922
+weighted avg       0.75      0.29      0.23      2922
+
++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+Working on Model: DecisionTreeClassifier(), Size: 2800, label Type: slbl
+              precision    recall  f1-score   support
+
+           0       0.68      0.75      0.71       570
+           1       0.89      0.81      0.85       549
+           2       0.57      0.64      0.60       521
+           3       0.65      0.50      0.57       177
+           4       0.85      0.77      0.81       558
+           5       0.73      0.76      0.74       547
+
+    accuracy                           0.73      2922
+   macro avg       0.73      0.70      0.71      2922
+weighted avg       0.74      0.73      0.73      2922
+
++++++++++++++++++++++++++++++
