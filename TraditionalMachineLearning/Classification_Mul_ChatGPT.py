@@ -16,9 +16,7 @@ output = "./RecordedResult/"
 def main_training(size, lbltype):
 
     # Step 1: Preparing the data
-    #textList, labelList = lib.prepre_texts()
-    #textList, labelList = dslib.getDataLists(2800)
-    textList, labelList = dslib.getDataMulLists(size, lbltype)
+    textList, labelList = dslib.getChatGPTDataMulLists(size, lbltype)
 
     # Step 2: Preprocessing the data
     textList = [lib.preprocess(t) for t in textList]
@@ -48,10 +46,10 @@ def main_training(size, lbltype):
         print("+++++++++++++++++++++++++++++")
 
         # Save model
-        with open(output + str(m)[:str(m).find("(")] + "_" + str(size) + "_" + lbltype + '_Mul_Sync.pkl', 'wb') as f:
+        with open(output + str(m)[:str(m).find("(")] + "_" + str(size) + "_" + lbltype + '_Mul_ChatGPT.pkl', 'wb') as f:
             pickle.dump(m, f)
 
-lblTypeList = ["lbl", "plbl", "slbl"]
+lblTypeList = ["label", "plabel", "slabel"]
 sizeList = [400, 1600, 2800]
 
 for size in sizeList:
