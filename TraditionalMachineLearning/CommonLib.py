@@ -30,7 +30,7 @@ def convertToTfIdfVector(textsList):
     """
     vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))  # 1-grams and 2-grams
     X = vectorizer.fit_transform(textsList)
-    return X
+    return vectorizer, X
 
 def prepareTrainingTestingDataset(vectorsList, labelsList):
     """

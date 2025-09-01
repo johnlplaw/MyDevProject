@@ -51,10 +51,11 @@ class Selected_MLModel:
     """
     Model info.
     """
-    def __init__(self, fileName, modelName, colName):
+    def __init__(self, fileName, modelName, colName, vectorizerFile):
         self.fileName = fileName
         self.modelName = modelName
         self.colName = colName
+        self.vectorizerFile = vectorizerFile
 
 class EvaTextMLData:
     id = "",
@@ -149,14 +150,14 @@ def update_prediction_result(textDataList, tablename, colname):
             conn.close()
             print("MySQL connection is closed")
 
-def convertToTfIdfVector(textsList):
+def convertToTfIdfVector(vectorizerFile, textsList):
     """
 
+    :param vectorizerFile:
     :param textsList:
     :return:
     """
-    vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))  # 1-grams and 2-grams
-    X = vectorizer.fit_transform(textsList)
+    X = vectorizerFile.transform(textsList)
     return X
 
 def predictionML(modelobj, fileDir, evaTxtMLData):
@@ -166,7 +167,11 @@ def predictionML(modelobj, fileDir, evaTxtMLData):
     for obj in evaTxtMLData:
         X_test.append(obj.thetext)
 
-    X = convertToTfIdfVector(X_test)
+    # Load model
+    with open(fileDir + modelobj.vectorizerFile, 'rb') as f:
+        vectorizerFile = pickle.load(f)
+
+    X = convertToTfIdfVector(vectorizerFile, X_test)
 
     # Load model
     with open(filePath, 'rb') as f:

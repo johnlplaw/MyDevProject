@@ -1,7 +1,7 @@
 import pickle
 
-dsFolder = "../Proc_Pretrained_Model/RecordedResult"
-ChatGPTdsFolder = "../Proc_Pretrained_model_ChatGPTDS/RecordedResult"
+dsFolder = "../Proc_Pretrained_Model/output"
+ChatGPTdsFolder = "../Proc_Pretrained_model_ChatGPTDS/output"
 
 def getEngDS(size, lbltype):
     dsEngFile = "DataFrame_training_eng_nos_" + lbltype + "_" + str(size) + ".obj"

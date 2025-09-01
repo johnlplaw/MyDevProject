@@ -12,7 +12,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 
-output = "./RecordedResult/"
+output = "./output/"
 def main_training(size, lbltype):
 
     # Step 1: Preparing the data
@@ -24,7 +24,7 @@ def main_training(size, lbltype):
     textList = [lib.preprocess(t) for t in textList]
 
     # Step 3: Convert Text to TF-IDF Vectors
-    X = lib.convertToTfIdfVector(textList)
+    vectorizer, X = lib.convertToTfIdfVector(textList)
 
     # Step 4: Preparing the training and testing datasets
 
@@ -50,6 +50,9 @@ def main_training(size, lbltype):
         # Save model
         with open(output + str(m)[:str(m).find("(")] + "_" + str(size) + "_" + lbltype + '_Mul_Sync.pkl', 'wb') as f:
             pickle.dump(m, f)
+
+    with open(output + "Vectorizer" + "_Mul_" + str(size) + "_" + lbltype + '.pkl', 'wb') as f1:
+        pickle.dump(vectorizer, f1)
 
 lblTypeList = ["lbl", "plbl", "slbl"]
 sizeList = [400, 1600, 2800]
