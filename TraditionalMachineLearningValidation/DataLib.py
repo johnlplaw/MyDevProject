@@ -80,6 +80,22 @@ class EvaTextMLData:
         self.dstype + " / " +
         self.labeltype )
 
+class EvaTweetsMLData:
+    id = "",
+    thetext = "",
+    label = "",
+    predictedLabel = ""
+
+    def __init__(self, id, thetext, label, predictedLabel):
+        self.id = id
+        self.thetext = thetext
+        self.label = label
+        self.predictedLabel = predictedLabel
+
+    def toString(self):
+        print(self.id + " / " +
+        self.thetext + " / " +
+        self.label)
 
 
 def get_cleanned_ori_text(tableName, colName):
@@ -106,6 +122,41 @@ def get_cleanned_ori_text(tableName, colName):
             labeltype = i[4]
 
             data = EvaTextMLData(id, thetext, label, dstype, labeltype, None)
+            TextDataList.append(data)
+
+        print("Finish query ...")
+    except mysql.connector.Error as error:
+        print("Failed to select record to database: {}".format(error))
+    finally:
+        if conn.is_connected():
+            mycursor.close()
+            conn.close()
+            print("MySQL connection is closed")
+
+    return TextDataList
+
+def get_EvaTweets(tableName, colName):
+    """
+    Query the cleanned text info.
+    :return:
+    """
+
+    print("Start to query ...")
+    TextDataList = []
+    try:
+        conn = sqlHelper.get_mysql_conn()
+        mycursor = conn.cursor()
+        Select_sql = "select id, clean_text, label from " + tableName + " where " + colName + " is null"
+        print(Select_sql)
+        mycursor.execute(Select_sql)
+        result = mycursor.fetchall()
+
+        for i in result:
+            id = i[0]
+            thetext = i[1]
+            label = i[2]
+
+            data = EvaTweetsMLData(id, thetext, label, None)
             TextDataList.append(data)
 
         print("Finish query ...")
@@ -182,6 +233,30 @@ def predictionML(modelobj, fileDir, evaTxtMLData):
         evaTxtMLData[i].predictedLabel = str(y_pred[i])
 
     return evaTxtMLData
+
+def predictionTweetsML(modelobj, fileDir, evaTweetsMLData):
+    filePath = fileDir + modelobj.fileName
+
+    X_test = []
+    for obj in evaTweetsMLData:
+        X_test.append(obj.thetext)
+
+    # Load model
+    with open(fileDir + modelobj.vectorizerFile, 'rb') as f:
+        vectorizerFile = pickle.load(f)
+
+    X = convertToTfIdfVector(vectorizerFile, X_test)
+
+    # Load model
+    with open(filePath, 'rb') as f:
+        loaded_model = pickle.load(f)
+    y_pred = loaded_model.predict(X)
+
+    for i in range(len(y_pred)):
+        evaTweetsMLData[i].predictedLabel = str(y_pred[i])
+
+    return evaTweetsMLData
+
 
 def get_predicted_labels(tableName, colName, dstype, labeltype):
     """
