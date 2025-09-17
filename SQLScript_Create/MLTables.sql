@@ -1,8 +1,3 @@
---
--- This is for the machine learning validation result
---
-
--- Create the table
 CREATE TABLE `EvaTextML` (
   `id` int NOT NULL AUTO_INCREMENT,
   `thetext` text,
@@ -12,11 +7,11 @@ CREATE TABLE `EvaTextML` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17482 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copy the data from the existing EVATEXTXML table
+-- Insert the existing testing datasets
 INSERT INTO `myresearch`.`EvaTextML`(`id`,`thetext`,`label`,`dstype`,`labeltype`)
 select id, thetext, label, dstype, labeltype from EvaText;
 
--- Adding the additional columns for the models
+-- Add columns for models
 alter table EvaTextML add DecisionTreeClassifier_lbl text;
 alter table EvaTextML add KNeighborsClassifier_lbl text;
 alter table EvaTextML add LinearSVC_lbl text;
@@ -57,6 +52,8 @@ alter table EvaTextML add MultinomialNBGPT_slbl text;
 alter table EvaTextML add RandomForestClassifierGPT_slbl text;
 
 select id, thetext, label, dstype, labeltype from EvaTextML where DecisionTreeClassifier_lbl is null
+
+select count(1) from EvaTextML where DecisionTreeClassifier_lbl is null
 
 
 

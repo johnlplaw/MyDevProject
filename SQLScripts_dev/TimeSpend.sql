@@ -8,7 +8,8 @@ select * from (
 
 select model_name, 
 sum(elapsed) as total_seconds,
-SEC_TO_TIME(sum(elapsed)) as total_time
+SEC_TO_TIME(sum(elapsed)) as total_time,
+count(1) epoch_count
 from model_training where model_name in
 (
 select distinct model_name from model_training where model_name like 'Final_%'
