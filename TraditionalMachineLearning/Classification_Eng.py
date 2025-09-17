@@ -12,6 +12,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
+import time
 
 output = "./output/"
 def main_training(size, lbltype):
@@ -40,12 +41,16 @@ def main_training(size, lbltype):
                  DecisionTreeClassifier()]
 
     for m in modelList:
+        start_time = time.time()
         m.fit(X_train, y_train)
         y_pred = m.predict(X_test)  # or svm_clf.predict(X_test)
         print("+++++++++++++++++++++++++++++")
         print("Working on Model: " + str(m) + ", Size: " + str(size) + ", label Type: " + lbltype)
         print(classification_report(y_test, y_pred))
         print("+++++++++++++++++++++++++++++")
+        end_time = time.time()
+        duration = end_time - start_time
+        print(f"Process duration: {duration:.2f} seconds")
 
         # Save model
         with open(output + str(m)[:str(m).find("(")] + "_" + str(size) + "_" + lbltype +'_Eng_Sync.pkl', 'wb') as f:
@@ -60,5 +65,4 @@ sizeList = [400, 1600, 2800]
 for size in sizeList:
     for lbltype in lblTypeList:
         main_training(size, lbltype)
-
 
